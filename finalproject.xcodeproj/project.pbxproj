@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		91E9FC902AE8C6820049ADAD /* finalprojectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */; };
-		91E9FC922AE8C6820049ADAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FC912AE8C6820049ADAD /* ContentView.swift */; };
+		91E9FC922AE8C6820049ADAD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FC912AE8C6820049ADAD /* HomeView.swift */; };
 		91E9FC942AE8C6840049ADAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E9FC932AE8C6840049ADAD /* Assets.xcassets */; };
 		91E9FC972AE8C6840049ADAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E9FC962AE8C6840049ADAD /* Preview Assets.xcassets */; };
 		91E9FCA12AE8C6840049ADAD /* finalprojectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCA02AE8C6840049ADAD /* finalprojectTests.swift */; };
 		91E9FCAB2AE8C6840049ADAD /* finalprojectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCAA2AE8C6840049ADAD /* finalprojectUITests.swift */; };
 		91E9FCAD2AE8C6840049ADAD /* finalprojectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCAC2AE8C6840049ADAD /* finalprojectUITestsLaunchTests.swift */; };
+		91E9FCBB2AEAE8380049ADAD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCBA2AEAE8380049ADAD /* TimerView.swift */; };
+		91E9FCC42AEAF80B0049ADAD /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC32AEAF80B0049ADAD /* TaskView.swift */; };
+		91E9FCC62AEAFB1F0049ADAD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC52AEAFB1F0049ADAD /* ProgressView.swift */; };
+		91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		91E9FC8C2AE8C6820049ADAD /* finalproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalprojectApp.swift; sourceTree = "<group>"; };
-		91E9FC912AE8C6820049ADAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		91E9FC912AE8C6820049ADAD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91E9FC932AE8C6840049ADAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91E9FC962AE8C6840049ADAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		91E9FC9C2AE8C6840049ADAD /* finalprojectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalprojectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,10 @@
 		91E9FCA62AE8C6840049ADAD /* finalprojectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalprojectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E9FCAA2AE8C6840049ADAD /* finalprojectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalprojectUITests.swift; sourceTree = "<group>"; };
 		91E9FCAC2AE8C6840049ADAD /* finalprojectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalprojectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		91E9FCBA2AEAE8380049ADAD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		91E9FCC32AEAF80B0049ADAD /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		91E9FCC52AEAFB1F0049ADAD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +102,8 @@
 		91E9FC8E2AE8C6820049ADAD /* finalproject */ = {
 			isa = PBXGroup;
 			children = (
+				91E9FCB92AE9BB880049ADAD /* Views */,
 				91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */,
-				91E9FC912AE8C6820049ADAD /* ContentView.swift */,
 				91E9FC932AE8C6840049ADAD /* Assets.xcassets */,
 				91E9FC952AE8C6840049ADAD /* Preview Content */,
 			);
@@ -125,6 +133,18 @@
 				91E9FCAC2AE8C6840049ADAD /* finalprojectUITestsLaunchTests.swift */,
 			);
 			path = finalprojectUITests;
+			sourceTree = "<group>";
+		};
+		91E9FCB92AE9BB880049ADAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91E9FC912AE8C6820049ADAD /* HomeView.swift */,
+				91E9FCBA2AEAE8380049ADAD /* TimerView.swift */,
+				91E9FCC32AEAF80B0049ADAD /* TaskView.swift */,
+				91E9FCC52AEAFB1F0049ADAD /* ProgressView.swift */,
+				91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91E9FC922AE8C6820049ADAD /* ContentView.swift in Sources */,
+				91E9FCBB2AEAE8380049ADAD /* TimerView.swift in Sources */,
+				91E9FC922AE8C6820049ADAD /* HomeView.swift in Sources */,
+				91E9FCC62AEAFB1F0049ADAD /* ProgressView.swift in Sources */,
+				91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */,
+				91E9FCC42AEAF80B0049ADAD /* TaskView.swift in Sources */,
 				91E9FC902AE8C6820049ADAD /* finalprojectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
