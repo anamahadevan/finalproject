@@ -6,26 +6,62 @@
 //
 
 import SwiftUI
-
-
+import SwiftData
 
 struct TaskView: View {
-    
-    //calling in view model, not instantiating
-    @ObservedObject var viewModel = TaskViewModel()
-    @State var taskContent = ""
-    
-    
-    
+    @Environment(\.modelContext) private var modelContext
+    @Query private var tasks: [Task]
+    @State private var taskInput: String = " "
+
     var body: some View {
-    
-        // creating a list of notes, by iterating over the 'Notes' array an
-        List(viewModel.myTasks) {
-            Text($0.content)
+        NavigationSplitView {
+            
+            TextField("new task..", text: $taskInput)
+            
+            List {
+                ForEach(tasks) { task in
+                    // create seperate view for each todo bar
+                    
+                    Text("will have view here")
+                }
+                .onDelete(perform: deleteTasks)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: addTasks(content: taskInput, topics: [Topic])) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+            }
+        } detail: {
+            Text("Select an item")
         }
-        
+    }
+
+    private func addTasks(content: String, topics: [Topic]) {
+        // adding new task to task array
+        withAnimation {
+            let newTask = Task(content: content, topics: topics)
+            modelContext.insert(newTask)
+        }
+    }
+
+    private func deleteTasks(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(tasks[index])
+            }
+        }
     }
 }
+
+
+
+
+
 
 #Preview {
     HomeView()

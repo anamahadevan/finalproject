@@ -9,12 +9,14 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-            Form {
-                Text("Settings")
+        NavigationView{
+            Form{
+                Text("Dark Mode")
             }
-        }
+        }.navigationTitle("Settings")
+    }
 }
 
 #Preview {
-    SettingsView()
+    HomeView()
 }

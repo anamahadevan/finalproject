@@ -6,19 +6,39 @@
 //
 
 import Foundation
+import SwiftData
 
 //create a model for each todo
 
-struct Task: Codable, Identifiable {
+
+
+
+// the class makes sure that the variables are accesible
+@Model
+class Task: Identifiable {
     var id = UUID()
     var content: String // each individual task
     // has a tag for the topic it is under
     var topics: [Topic]
+    init(){ // gives data for model to pull (empty)
+        content=""
+        topics=[]
+    }
+    
+    init(content: String, topics: [Topic]){
+        self.content = content
+        self.topics = topics
+    }
     
 }
 
-struct Topic: Codable,Identifiable {
+@Model
+class Topic: Identifiable {
     var id = UUID()
     var topic: String
+    init(topic: String){ // gives data for model to pull
+        self.topic=topic
+    }
 }
+
 
