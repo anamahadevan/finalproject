@@ -18,5 +18,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    HomeView()
+    SettingsView()
 }

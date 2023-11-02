@@ -27,9 +27,9 @@ struct TaskView: View {
                 .onDelete(perform: deleteTasks)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    EditButton()
+//                }
                 ToolbarItem {
                     Button(action: addTasks(content: taskInput, topics: [Topic])) {
                         Label("Add Item", systemImage: "plus")
@@ -40,7 +40,9 @@ struct TaskView: View {
             Text("Select an item")
         }
     }
-
+    
+    /////// adding and deleting topics
+    
     private func addTasks(content: String, topics: [Topic]) {
         // adding new task to task array
         withAnimation {
