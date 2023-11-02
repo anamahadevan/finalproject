@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    //calling in view model, not instantiating
+    @ObservedObject var viewModel = TaskViewModel()
+    
     // create view model for opening screen
     var body: some View {
         NavigationView {
@@ -23,14 +27,14 @@ struct HomeView: View {
                     Text("Tasks")
                 }
                 
-                NavigationLink(destination: TimerView()) {
+                NavigationLink(destination: ProgressView()) {
                     // circle background here
-                    Text("Timer")
+                    Text("Progress")
                 } // add background color to link
            
             
-                NavigationLink(destination: TaskView()) {
-                    Text("Tasks")
+                NavigationLink(destination: SettingsView()) {
+                    Text("Settings")
                 }
                 
             

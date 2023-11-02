@@ -18,6 +18,8 @@
 		91E9FCC42AEAF80B0049ADAD /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC32AEAF80B0049ADAD /* TaskView.swift */; };
 		91E9FCC62AEAFB1F0049ADAD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC52AEAFB1F0049ADAD /* ProgressView.swift */; };
 		91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */; };
+		91E9FCCE2AF076F20049ADAD /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCCD2AF076F20049ADAD /* TaskModel.swift */; };
+		91E9FCD22AF085900049ADAD /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCD12AF085900049ADAD /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		91E9FCC32AEAF80B0049ADAD /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		91E9FCC52AEAFB1F0049ADAD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		91E9FCCD2AF076F20049ADAD /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		91E9FCD12AF085900049ADAD /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 		91E9FC8E2AE8C6820049ADAD /* finalproject */ = {
 			isa = PBXGroup;
 			children = (
+				91E9FCD02AF0857F0049ADAD /* ViewModel */,
+				91E9FCC92AF076AD0049ADAD /* Model */,
 				91E9FCB92AE9BB880049ADAD /* Views */,
 				91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */,
 				91E9FC932AE8C6840049ADAD /* Assets.xcassets */,
@@ -145,6 +151,22 @@
 				91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91E9FCC92AF076AD0049ADAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91E9FCCD2AF076F20049ADAD /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91E9FCD02AF0857F0049ADAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91E9FCD12AF085900049ADAD /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +304,9 @@
 				91E9FCC62AEAFB1F0049ADAD /* ProgressView.swift in Sources */,
 				91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */,
 				91E9FCC42AEAF80B0049ADAD /* TaskView.swift in Sources */,
+				91E9FCD22AF085900049ADAD /* TaskViewModel.swift in Sources */,
 				91E9FC902AE8C6820049ADAD /* finalprojectApp.swift in Sources */,
+				91E9FCCE2AF076F20049ADAD /* TaskModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

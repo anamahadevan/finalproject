@@ -7,12 +7,26 @@
 
 import SwiftUI
 
+
+
 struct TaskView: View {
+    
+    //calling in view model, not instantiating
+    @ObservedObject var viewModel = TaskViewModel()
+    @State var taskContent = ""
+    
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+        // creating a list of notes, by iterating over the 'Notes' array an
+        List(viewModel.myTasks) {
+            Text($0.content)
+        }
+        
     }
 }
 
 #Preview {
-    TaskView()
+    HomeView()
 }
