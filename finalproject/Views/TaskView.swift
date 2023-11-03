@@ -31,9 +31,11 @@ struct TaskView: View {
 //                    EditButton()
 //                }
                 ToolbarItem {
-                    Button(action: addTasks(content: taskInput, topics: [Topic])) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                    Button(action: {
+                        addTasks(content: taskInput, topics: [Topic(topic: "topic1")])
+                                       }) {
+                                           Label("Add Item", systemImage: "plus")
+                                       }
                 }
             }
         } detail: {
@@ -41,7 +43,7 @@ struct TaskView: View {
         }
     }
     
-    /////// adding and deleting topics
+    /////// adding and deleting tasks
     
     private func addTasks(content: String, topics: [Topic]) {
         // adding new task to task array

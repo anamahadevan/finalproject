@@ -22,7 +22,7 @@ class Task: Identifiable {
     var topics: [Topic]
     init(){ // gives data for model to pull (empty)
         content=""
-        topics=[]
+        topics=[Topic(topic:"mobile app dev"),Topic(topic:"front end dev"), Topic(topic:"form")]
     }
     
     init(content: String, topics: [Topic]){
