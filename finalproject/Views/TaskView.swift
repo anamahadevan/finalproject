@@ -22,7 +22,7 @@ struct TaskView: View {
                 ForEach(tasks) { task in
                     // create seperate view for each todo bar
                     
-                    Text("will have view here")
+                    EachTaskView(task: task)
                 }
                 .onDelete(perform: deleteTasks)
             }

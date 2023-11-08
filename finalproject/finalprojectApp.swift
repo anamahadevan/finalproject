@@ -13,5 +13,6 @@ struct finalprojectApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: Task.self)
     }
 }

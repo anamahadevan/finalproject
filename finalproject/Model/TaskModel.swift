@@ -18,8 +18,8 @@ import SwiftData
 class Task: Identifiable {
     var id = UUID()
     var content: String // each individual task
+    @Relationship(deleteRule: .cascade) var topics = [Topic]()
     // has a tag for the topic it is under
-    var topics: [Topic]
     init(){ // gives data for model to pull (empty)
         content=""
         topics=[Topic(topic:"mobile app dev"),Topic(topic:"front end dev"), Topic(topic:"form")]
