@@ -10,10 +10,10 @@ import SwiftUI
 struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
-                Text("Timer App will be here soon...")
-            }
-            .background(Color(UIColor.background)
-                            .ignoresSafeArea())     }
+            Text("Timer App will be here soon...")
+        }
+        .background(Color(UIColor.background)
+            .ignoresSafeArea())     }
 }
 
 #Preview {

@@ -27,6 +27,11 @@ struct TaskView: View {
                     .listRowBackground(Color.background)
             }
             .toolbar {
+                
+//                ToolbarItem{
+//                    Navigation_CustomBackButton_Detail()
+//                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -61,6 +66,7 @@ struct TaskView: View {
         }
     }
 }
+
 
 
 

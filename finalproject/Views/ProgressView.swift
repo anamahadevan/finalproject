@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ProgressView: View {
     var body: some View {
-        Text("Progress")
-    }
+        GeometryReader { geometry in
+            Text("Progress")
+        }
+        .background(Color(UIColor.background)
+            .ignoresSafeArea())     }
 }
 
 #Preview {
