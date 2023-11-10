@@ -27,15 +27,15 @@ struct TaskView: View {
                 .onDelete(perform: deleteTasks)
             }
             .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
                 ToolbarItem {
                     Button(action: {
-                        addTasks(content: taskInput, topics: [Topic(topic: "topic1")])
-                                       }) {
-                                           Label("Add Item", systemImage: "plus")
-                                       }
+                        addTasks(content: taskInput, topics: [Topic(topic: "Mobile App Dev"), Topic(topic: "Front End Dev"), Topic(topic: "Form")])
+                    }){
+                        Label("Add Item", systemImage: "plus")
+                    }
                 }
             }
         } detail: {

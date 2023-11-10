@@ -15,30 +15,61 @@ struct HomeView: View {
     // create view model for opening screen
     var body: some View {
         NavigationView {
-            VStack {
-                // HSTACK here with offset
-                NavigationLink(destination: TimerView()) {
-                    // circle background here
-                    Text("Timer")
-                } // add background color to link
-           
-            
-                NavigationLink(destination: TaskView()) {
-                    Text("Tasks")
-                }
+            GeometryReader { geometry in
+                VStack{
+                    
+                    HStack{
+                        
+                        NavigationLink(destination: TaskView()) {
+                            Image( "tasks").resizable()
+                                .padding(.horizontal, 4.0)
+                                .frame(width: 120, height: 112)
+                        }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: ProgressView()) {
+                            // circle background here
+                            Image("progress").resizable()
+                                .frame(width: 110, height: 108)
+                            
+                        }
+                    }.padding(.vertical, 31.0)
+                    
                 
-                NavigationLink(destination: ProgressView()) {
-                    // circle background here
-                    Text("Progress")
-                } // add background color to link
-           
-            
-                NavigationLink(destination: SettingsView()) {
-                    Text("Settings")
+                    
+                    
+                    HStack{
+                        Image("logo").resizable()
+                            .frame(width: 296, height: 283)
+                    }
+                    .padding(.vertical, 80.0)
+                    
+                  
+                    
+                    HStack{
+                        // HSTACK here with offset
+                        
+                        NavigationLink(destination: SettingsView()) {
+                            Image("tasks").resizable()
+                                .frame(width: 110, height: 108)
+                        }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: TimerView()) {
+                            Image( "progress").resizable()
+                                .frame(width: 110, height: 108)
+                        }
+                        
+                    } .padding([.bottom, .trailing], 30)
+                    
                 }
+                .padding(.horizontal, 10.0)
                 
-            
             }
+            .background(Color(UIColor.background)
+                .ignoresSafeArea())
         }
     }
 }
