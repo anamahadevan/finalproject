@@ -12,7 +12,7 @@ struct TaskView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var tasks: [Task]
     @State private var taskInput: String = " "
-
+    
     var body: some View {
         NavigationSplitView {
             
@@ -23,8 +23,8 @@ struct TaskView: View {
                     // create seperate view for each todo bar
                     
                     EachTaskView(task: task)
-                }
-                .onDelete(perform: deleteTasks)
+                }.onDelete(perform: deleteTasks)
+                    .listRowBackground(Color.background)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -37,10 +37,10 @@ struct TaskView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-            }
-        } detail: {
-            Text("Select an item")
-        }
+            }.background(Color(UIColor.background)
+            .ignoresSafeArea())
+        } detail: {Text("Select an item")}
+            
     }
     
     /////// adding and deleting tasks
@@ -68,5 +68,5 @@ struct TaskView: View {
 
 
 #Preview {
-    HomeView()
+    TaskView()
 }

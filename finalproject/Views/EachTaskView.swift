@@ -10,7 +10,7 @@ import SwiftUI
 struct EachTaskView: View {
     //bindable makes manipulatable
     @Bindable var task: Task
-    @State private var selectedTopic = Topic(topic:"mobile app dev")
+    @State private var selectedTopic = Topic(topic:"mobile")
 
     
     var body: some View {

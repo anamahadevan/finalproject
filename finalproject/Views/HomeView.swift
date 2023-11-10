@@ -24,7 +24,8 @@ struct HomeView: View {
                             Image( "tasks").resizable()
                                 .padding(.horizontal, 4.0)
                                 .frame(width: 120, height: 112)
-                        }
+                        }.offset( x: 30, y: 75)
+
                         
                         Spacer()
                         
@@ -33,14 +34,15 @@ struct HomeView: View {
                             Image("progress").resizable()
                                 .frame(width: 110, height: 108)
                             
-                        }
-                    }.padding(.vertical, 31.0)
+                        }.offset( x: -15, y: 0)
+                    }.padding(.vertical, 20.0)
                     
                 
                     
                     
                     HStack{
-                        Image("logo").resizable()
+                        Image("logo")
+                            .resizable()
                             .frame(width: 296, height: 283)
                     }
                     .padding(.vertical, 80.0)
@@ -51,16 +53,16 @@ struct HomeView: View {
                         // HSTACK here with offset
                         
                         NavigationLink(destination: SettingsView()) {
-                            Image("tasks").resizable()
+                            Image("settings").resizable()
                                 .frame(width: 110, height: 108)
-                        }
+                        }.offset( x: 20, y: -55)
                         
                         Spacer()
                         
                         NavigationLink(destination: TimerView()) {
-                            Image( "progress").resizable()
+                            Image( "timer").resizable()
                                 .frame(width: 110, height: 108)
-                        }
+                        }.offset( x: 20, y: 25)
                         
                     } .padding([.bottom, .trailing], 30)
                     
