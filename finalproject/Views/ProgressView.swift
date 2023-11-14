@@ -10,7 +10,9 @@ import SwiftUI
 struct ProgressView: View {
     var body: some View {
         GeometryReader { geometry in
-            Text("Progress")
+            VStack{
+                
+            }
         }
         .background(Color(UIColor.background)
             .ignoresSafeArea())     }
