@@ -15,6 +15,7 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                //temporary timer code
                  Text("\(vm.time)")
                      .font(.system(size: 70, weight: .medium, design: .rounded))
                      .foregroundColor(Color.white)
