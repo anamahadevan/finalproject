@@ -14,5 +14,6 @@ struct finalprojectApp: App {
             HomeView()
         }
         .modelContainer(for: Task.self)
+        .modelContainer(for: Topic.self)
     }
 }

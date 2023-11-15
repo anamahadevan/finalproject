@@ -6,15 +6,44 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TimerView: View {
-    @StateObject private var vm = ViewModel()
+    @Environment(\.modelContext) private var modelContext
+    
+    @StateObject private var vm = TimerClass()
+    @Query private var tasks: [Task]
+    @Query private var topics: [Topic]
+    @Bindable var selectedTask: Task = Task()
+    
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                
+                //select which task
+//                Picker("Topic: ", selection: $selecteçdTask) {
+//                    ForEach(task, id: \.self) {
+//                        Text($0.task)
+//                    }
+//                }
+                
+                List {
+                    ForEach(tasks) { task in
+                        Text("\(task.content)")
+                            .onTapGesture {
+                                selectedTask = task
+                                ForEach(topics) { topic in
+                                    if (topic.topic == selectedTask?.topics.first?.topic) {
+                                        topic.counter = 0
+                                    }
+                                }
+                            }
+                    }
+                }
+                
                 //temporary timer code
                  Text("\(vm.time)")
                      .font(.system(size: 70, weight: .medium, design: .rounded))
@@ -61,9 +90,14 @@ struct TimerView: View {
              .onReceive(timer) { _ in
                  vm.currTime()
              }
+             .onAppear {
+                 modelContext.insert(Topic(topic: "Topic 1"))
+                 modelContext.insert(Topic(topic: "Topic 2"))
+             }
         }
         .background(Color(UIColor.background)
             .ignoresSafeArea())     }
+    
 }
 
 

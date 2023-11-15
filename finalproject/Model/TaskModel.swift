@@ -36,6 +36,7 @@ class Task: Identifiable {
 class Topic: Identifiable {
     var id = UUID()
     var topic: String
+    var counter: Int = 0
     init(topic: String){ // gives data for model to pull
         self.topic=topic
     }

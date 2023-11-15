@@ -9,7 +9,7 @@
 import Foundation
 
 extension TimerView {
-    final class ViewModel: ObservableObject {
+    final class TimerClass: ObservableObject {
         @Published var isActive = false
         @Published var showingAlert = false
         @Published var time: String = "25:00" // computed variable mb
