@@ -11,7 +11,11 @@ struct SettingsView: View {
     var body: some View {
         VStack{
             Form {
-                Section(header: Text("Timer settings")){PomodoroTime()}
+                Section(header: Text("Timer settings").foregroundColor(.white)){
+                    PomodoroTime()
+                    BreakOneTimer()
+                    BreakTwoTimer()
+                }.listRowBackground(Color.accent)
                     
             }.foregroundColor(.brown)
             .tint(.pink)
@@ -31,6 +35,23 @@ struct PomodoroTime: View {
     }
 }
 
+struct BreakOneTimer: View {
+    @State private var date = Date()
+    
+    var body: some View {
+        DatePicker("Break one timer ", selection: $date, displayedComponents: [.hourAndMinute])
+            .padding()
+    }
+}
+
+struct BreakTwoTimer: View {
+    @State private var date = Date()
+    
+    var body: some View {
+        DatePicker("Break two timer ", selection: $date, displayedComponents: [.hourAndMinute])
+            .padding()
+    }
+}
 
 #Preview {
     SettingsView()
