@@ -7,16 +7,9 @@
 
 import SwiftUI
 
-struct Navigation_CustomBackButton: View {
-    var body: some View {
-        NavigationStack {
-            NavigationLink("Go To Detail",
-                           destination: Navigation_CustomBackButton_Detail())
-        }
-    }
-}
+
 // Second Screen
-struct Navigation_CustomBackButton_Detail: View {
+struct CustomBackView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -36,5 +29,5 @@ struct Navigation_CustomBackButton_Detail: View {
 }
 
 #Preview {
-    Navigation_CustomBackButton()
+    CustomBackView()
 }

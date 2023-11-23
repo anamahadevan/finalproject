@@ -6,14 +6,25 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct finalprojectApp: App {
+    
+    var container: ModelContainer
+
+        init() {
+            do {
+                container = try ModelContainer(for: Task.self, Topic.self)
+            } catch(let error) {
+                fatalError("Failed to configure SwiftData container. \(error)")
+            }
+        }
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
         }
-        .modelContainer(for: Task.self)
-        .modelContainer(for: Topic.self)
+        .modelContainer(container)
     }
 }

@@ -9,24 +9,18 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        NavigationView{
-            Form{
-                
-                Section(header: Text("Basic settings")){
-                    Toggle(isOn: .constant(true), label: {
-                        Text("Notifications")
-                    })
-                }
-                
-                Section(header: Text("Timer settings")){
-                    PomodoroTime()
+        VStack{
+            Form {
+                Section(header: Text("Timer settings")){PomodoroTime()}
                     
-                }
-            }
-        }.navigationTitle("Settings")
+            }.foregroundColor(.brown)
+            .tint(.pink)
+            .background(Color.background)
+            .scrollContentBackground(.hidden)
+            .navigationBarTitle("Settings")
+        }
     }
 }
-
 
 struct PomodoroTime: View {
     @State private var date = Date()
@@ -36,6 +30,7 @@ struct PomodoroTime: View {
             .padding()
     }
 }
+
 
 #Preview {
     SettingsView()

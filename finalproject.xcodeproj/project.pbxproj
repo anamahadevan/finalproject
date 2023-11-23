@@ -21,6 +21,7 @@
 		91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */; };
 		91E9FCCE2AF076F20049ADAD /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCCD2AF076F20049ADAD /* TaskModel.swift */; };
 		91E9FCD22AF085900049ADAD /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FCD12AF085900049ADAD /* TaskViewModel.swift */; };
+		91E9FD202B0EFBDB00170FE3 /* MacSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91E9FD1F2B0EFBDB00170FE3 /* MacSans-Regular.otf */; };
 		91FA7C902AFE2C9800A27C55 /* CustomBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7C8F2AFE2C9800A27C55 /* CustomBackView.swift */; };
 		91FA7C922AFF2E3800A27C55 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7C912AFF2E3800A27C55 /* TimerModel.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		91E9FCC72AEAFB7F0049ADAD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91E9FCCD2AF076F20049ADAD /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		91E9FCD12AF085900049ADAD /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		91E9FD1F2B0EFBDB00170FE3 /* MacSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MacSans-Regular.otf"; path = "../../../../../Downloads/Mac Sans - Personal Use Only/Free for personal use - Mac Sans - Dyaharum Pungki Revitasari/MacSans-Regular.otf"; sourceTree = "<group>"; };
 		91FA7C8F2AFE2C9800A27C55 /* CustomBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackView.swift; sourceTree = "<group>"; };
 		91FA7C912AFF2E3800A27C55 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 		91E9FC8E2AE8C6820049ADAD /* finalproject */ = {
 			isa = PBXGroup;
 			children = (
+				91E9FD1E2B0EFB4000170FE3 /* ProjectFonts */,
 				91126D6F2AF4068C003EF640 /* Services */,
 				91E9FCD02AF0857F0049ADAD /* ViewModel */,
 				91E9FCC92AF076AD0049ADAD /* Model */,
@@ -184,6 +187,14 @@
 				91E9FCD12AF085900049ADAD /* TaskViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91E9FD1E2B0EFB4000170FE3 /* ProjectFonts */ = {
+			isa = PBXGroup;
+			children = (
+				91E9FD1F2B0EFBDB00170FE3 /* MacSans-Regular.otf */,
+			);
+			path = ProjectFonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E9FD202B0EFBDB00170FE3 /* MacSans-Regular.otf in Resources */,
 				91E9FC972AE8C6840049ADAD /* Preview Assets.xcassets in Resources */,
 				91E9FC942AE8C6840049ADAD /* Assets.xcassets in Resources */,
 			);

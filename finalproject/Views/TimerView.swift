@@ -14,7 +14,7 @@ struct TimerView: View {
     @StateObject private var vm = TimerClass()
     @Query private var tasks: [Task]
     @Query private var topics: [Topic]
-    @Bindable var selectedTask: Task = Task()
+    @State var selectedTask: Task = Task()
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
@@ -23,8 +23,8 @@ struct TimerView: View {
         GeometryReader { geometry in
             VStack {
                 
-                //select which task
-//                Picker("Topic: ", selection: $selecteçdTask) {
+//                select which task
+//                Picker("Topic: ", selection: $selectedTask) {
 //                    ForEach(task, id: \.self) {
 //                        Text($0.task)
 //                    }
@@ -35,8 +35,8 @@ struct TimerView: View {
                         Text("\(task.content)")
                             .onTapGesture {
                                 selectedTask = task
-                                ForEach(topics) { topic in
-                                    if (topic.topic == selectedTask?.topics.first?.topic) {
+                                for topic in topics {
+                                    if (topic.topic == selectedTask.topics.first?.topic) {
                                         topic.counter = 0
                                     }
                                 }
