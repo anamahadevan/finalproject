@@ -11,9 +11,20 @@ struct SettingsView: View {
     var body: some View {
         VStack{
             Form {
-                Section(header: Text("Timer settings").foregroundColor(.white)){
+                Image("settingstitle")
+                    .resizable()
+                    .frame(width: 340, height: 100)
+                    .listRowBackground(Color.background)
+                
+                Section(header: Image("timersettings").foregroundColor(.white)){
                     PomodoroTime()
+                    Image("border")
+                        .resizable()
+                        .frame(width: 340, height: 100)
                     BreakOneTimer()
+                    Image("border")
+                        .resizable()
+                        .frame(width: 340, height: 100)
                     BreakTwoTimer()
                 }.listRowBackground(Color.accent)
                     
@@ -21,7 +32,6 @@ struct SettingsView: View {
             .tint(.pink)
             .background(Color.background)
             .scrollContentBackground(.hidden)
-            .navigationBarTitle("Settings")
         }
     }
 }
