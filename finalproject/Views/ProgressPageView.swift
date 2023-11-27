@@ -115,8 +115,6 @@ struct CircleProgress: ProgressViewStyle {
     var strokeColor = Color.tomato
     func makeBody(configuration: Configuration) -> some View {
         
-        let fractionCompleted = configuration.fractionCompleted ?? 0
-        
         return ZStack {
             Circle()
                 .stroke(strokeColor, style: StrokeStyle(lineWidth: 20, lineCap: .square))

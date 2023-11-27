@@ -21,8 +21,16 @@ extension TimerView {
         private var initialTime = 0
         private var endDate = Date()
         
-        // Start the timer with the given amount of minutes
+        // start the timer with the given amount of minutes
         func start(minutes: Float) {
+            self.initialTime = Int(minutes)
+            self.endDate = Date()
+            self.isActive = true
+            self.endDate = Calendar.current.date(byAdding: .minute, value: Int(minutes), to: endDate)!
+        }
+        
+        // Start the timer with the given amount of minutes
+        func pause(minutes: Float) {
             self.initialTime = Int(minutes)
             self.endDate = Date()
             self.isActive = true

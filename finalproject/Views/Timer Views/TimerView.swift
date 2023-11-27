@@ -22,53 +22,49 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                
-                //                select which task
-                //                Picker("Topic: ", selection: $selectedTask) {
-                //                    ForEach(task, id: \.self) {
-                //                        Text($0.task)
-                //                    }
-                //                }
-                
-                List {
-                    ForEach(tasks) { task in
-                        Text("\(task.content)")
-                            .onTapGesture {
-                                selectedTask = task
-                                for topic in topics {
-                                    if (topic.topic == selectedTask.topics.first?.topic) {
-                                        topic.counter = 0
+                // picker for tasks
+                VStack{
+                    List {
+                        ForEach(tasks) { task in
+                            Text("\(task.content)")
+                                .onTapGesture {
+                                    selectedTask = task
+                                    for topic in topics {
+                                        if (topic.topic == selectedTask.topics.first?.topic) {
+                                            topic.counter = 0
+                                        }
                                     }
                                 }
-                            }
+                        }
                     }
-                }
+                }.background(Color.background)
+                    .frame(width: 250, height: 105)
+                    .padding(.vertical,10.0)
                 
                 Spacer()
                 
+                // timer stack
                 HStack{
-                    //temporary timer code
                     Text("\(vm.time)")
                         .font(.system(size: 70, weight: .medium, design: .rounded))
                         .foregroundColor(Color.white)
-                    // alert for timer completion
-                        .alert("timer has finished!", isPresented: $vm.showingAlert) {
-                            Button("Continue", role: .cancel) {
-                                
-                            }
-                        }
                         .padding()
                         .background(Image("tomato").resizable().frame(width: 327, height: 325))
                 }
                 
                 Spacer()
                 
-                // current control for the timer duration , trying to figure out how to make this set times that i can shift in between??
-                Slider(value: $vm.minutes, in: 1...10, step: 1)
-                    .padding()
-                    .disabled(vm.isActive)
-                    .animation(.easeInOut, value: vm.minutes)
-                    .frame(width: width)
+                // timer view select
+                HStack{
+                    // current control for the timer duration , trying to figure out how to make this set times that i can shift in between??
+                    Slider(value: $vm.minutes, in: 1...10, step: 1)
+                        .padding()
+                        .disabled(vm.isActive)
+                        .animation(.easeInOut, value: vm.minutes)
+                        .frame(width: width)
+                }
+                
+                Spacer()
                 
                 // timer controls
                 HStack(spacing:50) {
@@ -85,6 +81,7 @@ struct TimerView: View {
                             .frame(width: 45.30544, height: 51.78119)
                     }
                 }
+    
                 .frame(width: width)
             }
             .padding(.horizontal, 70.0)
@@ -99,11 +96,10 @@ struct TimerView: View {
         }
         .background(Color(UIColor.background)
             .ignoresSafeArea())     }
-    
 }
 
-
-
+//
+//
 //#Preview {
 //    TimerView()
 //}
