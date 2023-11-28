@@ -13,62 +13,46 @@ extension TimerView {
         @Published var isActive = false
         @Published var showingAlert = false
         @Published var time: String = "25:00" // computed variable mb
-        @Published var minutes: Float = 25.0 {
+        @Published var startTimeSeconds: Float = 25*60
+        // updating seconds with didSet
+        @Published var secondsLeft = 0 {
             didSet {
-                self.time = "\(Int(minutes)):00"
+                self.time = "\(Int(startTimeSeconds)):00"
             }
         }
-        private var initialTime = 0
-        private var endDate = Date()
+        
         
         // start the timer with the given amount of minutes
-        func start(minutes: Float) {
-            self.initialTime = Int(minutes)
-            self.endDate = Date()
+        func start(startTimeSeconds: Float) {
+            self.secondsLeft = Int(startTimeSeconds)
             self.isActive = true
-            self.endDate = Calendar.current.date(byAdding: .minute, value: Int(minutes), to: endDate)!
         }
         
-        // Start the timer with the given amount of minutes
-        func pause(minutes: Float) {
-            self.initialTime = Int(minutes)
-            self.endDate = Date()
-            self.isActive = true
-            self.endDate = Calendar.current.date(byAdding: .minute, value: Int(minutes), to: endDate)!
+        // pause the timer , stops decrementing
+        func pause(startTimeSeconds: Float) {
+            self.isActive = !isActive
         }
         
         // Reset the timer
         func reset() {
-            self.minutes = Float(initialTime)
+            self.startTimeSeconds = Float(secondsLeft)
             self.isActive = false
-            self.time = "\(Int(minutes)):00"
         }
         
         // Show updates of the timer
         func currTime(){
             guard isActive else { return }
             
-            // Gets the current date and makes the time difference calculation
-            let now = Date()
-            let diff = endDate.timeIntervalSince1970 - now.timeIntervalSince1970
+            //decrements the amounts of seconds left on the clock
+            secondsLeft -= 1
             
             // Checks that the countdown is not <= 0
-            if diff <= 0 {
+            if secondsLeft <= 0 {
                 self.isActive = false
-                self.time = "0:00"
                 self.showingAlert = true
                 return
             }
             
-            // Turns the time difference calculation into sensible data and formats it
-            let date = Date(timeIntervalSince1970: diff)
-            let calendar = Calendar.current
-            let minutes = calendar.component(.minute, from: date)
-            let seconds = calendar.component(.second, from: date)
-
-            // Updates the time string with the formatted time
-            self.minutes = Float(minutes)
-            self.time = String(format:"%d:%02d", minutes, seconds)
         }
     }
 }

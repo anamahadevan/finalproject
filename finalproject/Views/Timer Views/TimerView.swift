@@ -23,30 +23,30 @@ struct TimerView: View {
         GeometryReader { geometry in
             VStack {
                 // picker for tasks
-                VStack{
-                    List {
-                        ForEach(tasks) { task in
-                            Text("\(task.content)")
-                                .onTapGesture {
-                                    selectedTask = task
-                                    for topic in topics {
-                                        if (topic.topic == selectedTask.topics.first?.topic) {
-                                            topic.counter = 0
-                                        }
-                                    }
-                                }
-                        }
-                    }
-                }.background(Color.background)
-                    .frame(width: 250, height: 105)
-                    .padding(.vertical,10.0)
+//                VStack{
+//                    List {
+//                        ForEach(tasks) { task in
+//                            Text("\(task.content)")
+//                                .onTapGesture {
+//                                    selectedTask = task
+//                                    for topic in topics {
+//                                        if (topic.topic == selectedTask.topics.first?.topic) {
+//                                            topic.counter = 0
+//                                        }
+//                                    }
+//                                }
+//                        }
+//                    }
+//                }.background(Color.background)
+//                    .frame(width: 250, height: 105)
+//                    .padding(.vertical,10.0)
                 
                 Spacer()
                 
                 // timer stack
                 HStack{
                     Text("\(vm.time)")
-                        .font(.system(size: 70, weight: .medium, design: .rounded))
+                        .font(.system(size: 30, weight: .medium, design: .rounded))
                         .foregroundColor(Color.white)
                         .padding()
                         .background(Image("tomato").resizable().frame(width: 327, height: 325))
@@ -57,10 +57,10 @@ struct TimerView: View {
                 // timer view select
                 HStack{
                     // current control for the timer duration , trying to figure out how to make this set times that i can shift in between??
-                    Slider(value: $vm.minutes, in: 1...10, step: 1)
+                    Slider(value: $vm.startTimeSeconds, in: 1...10, step: 1)
                         .padding()
                         .disabled(vm.isActive)
-                        .animation(.easeInOut, value: vm.minutes)
+                        .animation(.easeInOut, value: vm.secondsLeft)
                         .frame(width: width)
                 }
                 
@@ -69,12 +69,19 @@ struct TimerView: View {
                 // timer controls
                 HStack(spacing:50) {
                     Button {
-                        vm.start(minutes: vm.minutes)
+                        vm.start(startTimeSeconds: vm.startTimeSeconds)
                     } label: {
                         Image( "play").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
                     .disabled(vm.isActive)
+                    
+                    Button {
+                        vm.pause(startTimeSeconds: vm.startTimeSeconds)
+                    } label: {
+                        Image(systemName: "pause")
+                            .frame(width: 45.30544, height: 51.78119)
+                    }
                     
                     Button(action: vm.reset){
                         Image("reset").resizable()
