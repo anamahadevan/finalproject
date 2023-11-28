@@ -83,7 +83,7 @@ struct TimerView: View {
                 }
     
                 .frame(width: width)
-            }
+            }  // end of stack
             .padding(.horizontal, 70.0)
             .padding(.vertical, 200.0)
             .onReceive(timer) { _ in
