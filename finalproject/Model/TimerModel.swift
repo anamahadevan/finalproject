@@ -20,6 +20,7 @@ class NewTimerModel: ObservableObject{
     @Published var todo: Todo = Todo()
     @Published var mode: TimerMode = .pom
     @Published var formattedTime: String = "00 : 00"
+    @Published var finished: Bool = false
     var cases: [TimerMode] = [.pom, .break1,.pom, .break2]
     var modeIndex = 0
     var timer = Timer()
@@ -33,6 +34,7 @@ class NewTimerModel: ObservableObject{
             self.timeRemaining -= 1
             if self.timeRemaining == 0{
                 self.endTimer()
+                self.finished = true
             }
             let (_,m,s) = self.secondsToHoursMinutesSeconds(self.timeRemaining)
             self.formattedTime = String(format: "%02d : %02d", m, s)

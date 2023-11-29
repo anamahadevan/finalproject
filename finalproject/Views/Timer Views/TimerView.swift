@@ -13,55 +13,58 @@ struct TimerView: View {
     
     @State var currentMode: TimerMode = .break1
 //    @StateObject private var vm = TimerClass()
+    
+    // The task will hold a topic name associated with the topic in swiftdata
     @Query private var tasks: [Task]
+    
+    // Each topic will hold a name and a counter
     @Query private var topics: [Topic]
-    @State var selectedTask: Task = Task()
+    @State var selectedTask: Task?
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
     @StateObject var newTimerModel = NewTimerModel()
     
+    func UpdateTopicCounter() {
+        // Using selectedTask
+        // selectedTask.Topics should have only selected topic
+        // Get the selectedtopic name and search for it inside of swiftdata
+            // @Query private var topics: [Topic]
+        // Update the topic counter in swiftdata
+        print("Finished")
+        selectedTask?.topics[0].counter += 1
+    }
     
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                // picker for tasks
-//                VStack{
-//                    List {
-//                        ForEach(tasks) { task in
-//                            Text("\(task.content)")
-//                                .onTapGesture {
-//                                    selectedTask = task
-//                                    for topic in topics {
-//                                        if (topic.topic == selectedTask.topics.first?.topic) {
-//                                            topic.counter = 0
-//                                        }
-//                                    }
-//                                }
-//                        }
-//                    }
-//                }.background(Color.background)
-//                    .frame(width: 250, height: 105)
-//                    .padding(.vertical,10.0)
                 
+                // topic PICKER
+//                HStack{
+//                    // list ( replace for picker )
+//                    Picker("Tasks", selection: $selectedTask) {
+//                                  ForEach(tasks, id: \.self) { task in
+//                                      Text(task).tag(task)
+//                                  }
+//                              }
+//                              .onChange(of: selectedTask) { _ in
+//                                  UpdateTopicCounter()
+//                              }
+//                }
+//                
                 Spacer()
                 
                 // timer stack
+                
                 HStack{
                     Text(newTimerModel.formattedTime)
-                    
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                     .foregroundColor(Color.white)
                     .padding()
                     .background(Image("tomato").resizable().frame(width: 327, height: 325))
                 
                 Spacer()
-                
-                // timer view select
-                HStack{
-                    
-                }
                 
                 Spacer()
                 switch currentMode {
