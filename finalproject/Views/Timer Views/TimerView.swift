@@ -11,6 +11,7 @@ import SwiftData
 struct TimerView: View {
     @Environment(\.modelContext) private var modelContext
     
+    @State var currentMode: TimerMode = .break1
     @StateObject private var vm = TimerClass()
     @Query private var tasks: [Task]
     @Query private var topics: [Topic]
@@ -65,6 +66,15 @@ struct TimerView: View {
                 }
                 
                 Spacer()
+                switch currentMode {
+                case .pom:
+                    PomodoroView()
+                case .break1:
+                    Text("break1").foregroundStyle(.blue)
+                case .break2:
+                    Text("break2")
+                }
+                
                 
                 // timer controls
                 HStack(spacing:50) {

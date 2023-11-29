@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 extension TimerView {
     final class TimerClass: ObservableObject {
         @Published var isActive = false
@@ -56,3 +57,4 @@ extension TimerView {
         }
     }
 }
+
