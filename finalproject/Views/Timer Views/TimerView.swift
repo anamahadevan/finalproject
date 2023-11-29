@@ -12,13 +12,16 @@ struct TimerView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State var currentMode: TimerMode = .break1
-    @StateObject private var vm = TimerClass()
+//    @StateObject private var vm = TimerClass()
     @Query private var tasks: [Task]
     @Query private var topics: [Topic]
     @State var selectedTask: Task = Task()
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
+    @StateObject var newTimerModel = NewTimerModel()
+    
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -46,23 +49,18 @@ struct TimerView: View {
                 
                 // timer stack
                 HStack{
-                    Text("\(vm.time)")
-                        .font(.system(size: 30, weight: .medium, design: .rounded))
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .background(Image("tomato").resizable().frame(width: 327, height: 325))
-                }
+                    Text(newTimerModel.formattedTime)
+                    
+                }.font(.system(size: 30, weight: .medium, design: .rounded))
+                    .foregroundColor(Color.white)
+                    .padding()
+                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
                 
                 Spacer()
                 
                 // timer view select
                 HStack{
-                    // current control for the timer duration , trying to figure out how to make this set times that i can shift in between??
-                    Slider(value: $vm.startTimeSeconds, in: 1...10, step: 1)
-                        .padding()
-                        .disabled(vm.isActive)
-                        .animation(.easeInOut, value: vm.secondsLeft)
-                        .frame(width: width)
+                    
                 }
                 
                 Spacer()
@@ -79,21 +77,13 @@ struct TimerView: View {
                 // timer controls
                 HStack(spacing:50) {
                     Button {
-                        vm.start(startTimeSeconds: vm.startTimeSeconds)
+                        newTimerModel.startTimer()
                     } label: {
                         Image( "play").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
-                    .disabled(vm.isActive)
                     
-                    Button {
-                        vm.pause(startTimeSeconds: vm.startTimeSeconds)
-                    } label: {
-                        Image(systemName: "pause")
-                            .frame(width: 45.30544, height: 51.78119)
-                    }
-                    
-                    Button(action: vm.reset){
+                    Button(action: {newTimerModel.endTimer()}){
                         Image("reset").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
@@ -103,9 +93,6 @@ struct TimerView: View {
             }  // end of stack
             .padding(.horizontal, 70.0)
             .padding(.vertical, 200.0)
-            .onReceive(timer) { _ in
-                vm.currTime()
-            }
             .onAppear {
                 modelContext.insert(Topic(topic: "Topic 1"))
                 modelContext.insert(Topic(topic: "Topic 2"))

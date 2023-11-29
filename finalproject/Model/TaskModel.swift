@@ -10,13 +10,6 @@ import SwiftData
 
 //create a model for each todo
 
-//User defaults workflow:
-
-//UserDefaults.standard.set(value: 5,forKey: "age")
-//
-
-
-
 // the class makes sure that the variables are accesible
 @Model
 class Task: Identifiable {
@@ -45,6 +38,30 @@ class Topic: Identifiable {
         self.topic=topic
     }
 }
+
+class Todo: Hashable{
+    static func == (lhs: Todo, rhs: Todo) -> Bool {
+        return lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(id)
+    }
+    var name: String
+
+    var id = UUID().uuidString
+    var timesRun: Int = 0
+    init(name: String? = nil){
+        guard name != nil else{
+            //No todo selected
+            self.name = "Select a Todo"
+            return
+        }
+        self.name = name!
+    }
+    
+    
+}
+
 
 
 /*
