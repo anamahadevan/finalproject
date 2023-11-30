@@ -19,7 +19,7 @@ struct TimerView: View {
     
     // Each topic will hold a name and a counter
     @Query private var topics: [Topic]
-    @State var selectedTask: Task?
+    @State var selectedTask: Task = Task(content: "balls", topics: [Topic(topic: "Cum")])
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
@@ -29,42 +29,37 @@ struct TimerView: View {
         // Using selectedTask
         // selectedTask.Topics should have only selected topic
         // Get the selectedtopic name and search for it inside of swiftdata
-            // @Query private var topics: [Topic]
+        // @Query private var topics: [Topic]
         // Update the topic counter in swiftdata
-        print("Finished")
-        selectedTask?.topics[0].counter += 1
+        //        print("Finished")
+        //        selectedTask?.topics[0].counter += 1
     }
-    
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                // topic selection, if its empty, the picker wont display
+                if tasks.isEmpty {
+                    EmptyView() // add a link to navigation here
+                }
+                else { // picker
+                    HStack {
+                        Picker("Tasks", selection: $selectedTask) {
+                                      ForEach(tasks, id: \.self) { task in
+                                          Text(task.content).tag(task.id)
+                            }
+                        }.pickerStyle(MenuPickerStyle())
+                    }   .padding(.vertical, 50)
+                }
                 
-                // topic PICKER
-//                HStack{
-//                    // list ( replace for picker )
-//                    Picker("Tasks", selection: $selectedTask) {
-//                                  ForEach(tasks, id: \.self) { task in
-//                                      Text(task).tag(task)
-//                                  }
-//                              }
-//                              .onChange(of: selectedTask) { _ in
-//                                  UpdateTopicCounter()
-//                              }
-//                }
-//                
                 Spacer()
-                
-                // timer stack
-                
+
+              //  timer stack
                 HStack{
                     Text(newTimerModel.formattedTime)
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                     .foregroundColor(Color.white)
-                    .padding()
                     .background(Image("tomato").resizable().frame(width: 327, height: 325))
-                
-                Spacer()
                 
                 Spacer()
                 switch currentMode {
@@ -95,11 +90,13 @@ struct TimerView: View {
                 .frame(width: width)
             }  // end of stack
             .padding(.horizontal, 70.0)
-            .padding(.vertical, 200.0)
             .onAppear {
                 modelContext.insert(Topic(topic: "Topic 1"))
                 modelContext.insert(Topic(topic: "Topic 2"))
             }
+        }
+        .task {
+            
         }
         .background(Color(UIColor.background)
             .ignoresSafeArea())     }

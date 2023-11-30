@@ -16,10 +16,10 @@ enum TimerMode: String, CaseIterable{
 
 
 class NewTimerModel: ObservableObject{
-    @Published var timeRemaining = 5
+    @Published var timeRemaining = 1500
     @Published var todo: Todo = Todo()
     @Published var mode: TimerMode = .pom
-    @Published var formattedTime: String = "00 : 00"
+    @Published var formattedTime: String = "25 : 00"
     @Published var finished: Bool = false
     var cases: [TimerMode] = [.pom, .break1,.pom, .break2]
     var modeIndex = 0
