@@ -63,10 +63,3 @@ class Todo: Hashable{
 }
 
 
-
-/*
- Initial app state is ponadora timer.
- After 25 minutes go to break 1 then back then to break 2
- Every time you run the timer you select a task.
- Everytime that timer runs add to the counter of the progress page. 
- */

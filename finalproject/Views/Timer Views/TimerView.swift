@@ -38,6 +38,9 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                
+                Spacer()
+                
                 // topic selection, if its empty, the picker wont display
                 if tasks.isEmpty {
                     EmptyView() // add a link to navigation here
@@ -61,16 +64,16 @@ struct TimerView: View {
                     .foregroundColor(Color.white)
                     .background(Image("tomato").resizable().frame(width: 327, height: 325))
                 
-                Spacer()
-                switch currentMode {
-                case .pom:
-                    PomodoroView()
-                case .break1:
-                    Text("break1").foregroundStyle(.blue)
-                case .break2:
-                    Text("break2")
-                }
-                
+//                HStack{
+//                    switch currentMode {
+//                    case .pom:
+//                        PomodoroView()
+//                    case .break1:
+//                        BreakOneView()
+//                    case .break2:
+//                        BreakTwoView()
+//                    }
+//                }
                 
                 // timer controls
                 HStack(spacing:50) {
@@ -86,7 +89,6 @@ struct TimerView: View {
                             .frame(width: 45.30544, height: 51.78119)
                     }
                 }
-    
                 .frame(width: width)
             }  // end of stack
             .padding(.horizontal, 70.0)

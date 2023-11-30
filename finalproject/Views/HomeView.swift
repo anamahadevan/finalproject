@@ -30,7 +30,7 @@ struct HomeView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: ProgressView()) {
+                            NavigationLink(destination: ProgressPageView()) {
                                 // circle background here
                                 Image("progress").resizable()
                                     .frame(width: 110, height: 108)

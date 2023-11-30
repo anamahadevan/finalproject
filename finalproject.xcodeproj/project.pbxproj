@@ -11,7 +11,6 @@
 		916657122B1518690043A8F8 /* BreakOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916657112B1518690043A8F8 /* BreakOneView.swift */; };
 		916657142B1518770043A8F8 /* BreakTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916657132B1518770043A8F8 /* BreakTwoView.swift */; };
 		91842B9F2AFAD1600065ABE8 /* EachTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */; };
-		91E29C462B17CE9400D808EE /* TimerViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29C452B17CE9400D808EE /* TimerViewExample.swift */; };
 		91E9FC902AE8C6820049ADAD /* finalprojectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */; };
 		91E9FC922AE8C6820049ADAD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9FC912AE8C6820049ADAD /* HomeView.swift */; };
 		91E9FC942AE8C6840049ADAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E9FC932AE8C6840049ADAD /* Assets.xcassets */; };
@@ -52,7 +51,6 @@
 		916657112B1518690043A8F8 /* BreakOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakOneView.swift; sourceTree = "<group>"; };
 		916657132B1518770043A8F8 /* BreakTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTwoView.swift; sourceTree = "<group>"; };
 		91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTaskView.swift; sourceTree = "<group>"; };
-		91E29C452B17CE9400D808EE /* TimerViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewExample.swift; sourceTree = "<group>"; };
 		91E9FC8C2AE8C6820049ADAD /* finalproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalprojectApp.swift; sourceTree = "<group>"; };
 		91E9FC912AE8C6820049ADAD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				91E9FCBA2AEAE8380049ADAD /* TimerView.swift */,
-				91E29C452B17CE9400D808EE /* TimerViewExample.swift */,
 				9166570F2B1518590043A8F8 /* PomodoroView.swift */,
 				916657112B1518690043A8F8 /* BreakOneView.swift */,
 				916657132B1518770043A8F8 /* BreakTwoView.swift */,
@@ -355,7 +352,6 @@
 				916657102B1518590043A8F8 /* PomodoroView.swift in Sources */,
 				91E9FC922AE8C6820049ADAD /* HomeView.swift in Sources */,
 				91E9FCC62AEAFB1F0049ADAD /* ProgressPageView.swift in Sources */,
-				91E29C462B17CE9400D808EE /* TimerViewExample.swift in Sources */,
 				91E9FCC82AEAFB7F0049ADAD /* SettingsView.swift in Sources */,
 				91E9FCC42AEAF80B0049ADAD /* TaskView.swift in Sources */,
 				91E9FCD22AF085900049ADAD /* TaskViewModel.swift in Sources */,
