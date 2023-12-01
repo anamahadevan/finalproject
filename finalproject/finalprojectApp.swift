@@ -12,7 +12,7 @@ import SwiftData
 struct finalprojectApp: App {
     
     var container: ModelContainer
-
+    @StateObject var dataModel: DataModel = DataModel()
         init() {
             do {
                 container = try ModelContainer(for: Task.self, Topic.self)
@@ -23,7 +23,7 @@ struct finalprojectApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView().environmentObject(dataModel)
         }
         .modelContainer(container)
     }

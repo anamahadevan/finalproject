@@ -9,7 +9,7 @@ import Foundation
 
 class TaskViewModel: ObservableObject{
     //create list of notes, var so can add and delete
-    @Published var myTasks = [Task]()
+    var myTasks = [Task]()
     
     func newTasks(content: String, topics: [Topic]) {
         

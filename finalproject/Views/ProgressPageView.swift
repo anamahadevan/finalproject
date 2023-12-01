@@ -6,9 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProgressPageView: View {
+//    @Environment(\.modelContext) private var modelContext
+//    @Query private var tasks: [Task]
+    @Environment(\.modelContext) private var modelContext
     
+
+    // The task will hold a topic name associated with the topic in swiftdata
+    @Query var tasks: [Task]
+    
+    // Each topic will hold a name and a counter
+    @Query var topics: [Topic]
+   // @EnvironmentObject var dataModel: DataModel
     // create view model for opening screen
     var body: some View {
         GeometryReader { geometry in
@@ -16,11 +27,11 @@ struct ProgressPageView: View {
                 
                 HStack{
                     
-
+              
                     ProgressWheel()
                         .frame(width: 120, height: 112)
                         .offset( x: 30, y: 75)
-        
+                    
                     
                     Spacer()
                     
@@ -84,12 +95,14 @@ struct ProgressPageView: View {
 struct ProgressWheel: View {
     
     // sets up progress cap to ten
-    @State private var progress = 7.0
-    
+    @State var progress = 7.0
+    @State var topic: Topic = Topic(topic: "")
     var body: some View {
         ZStack{
             //empty progress circle
+            Text(topic.topic)
             VStack{
+              
                 ProgressView(value: 10.0, total: 10.0)
                     .progressViewStyle(CircleProgress(strokeColor: Color.pink))
                     .frame(width: UIScreen.main.bounds.width/2)

@@ -12,14 +12,14 @@ import SwiftData
 
 // the class makes sure that the variables are accesible
 @Model
-class Task: Identifiable {
+class Task: Identifiable, ObservableObject {
     var id = UUID()
     var content: String // each individual task
     @Relationship(deleteRule: .cascade) var topics = [Topic]()
     // has a tag for the topic it is under
     init(){ // gives data for model to pull (empty)
         content=""
-        topics=[Topic(topic:"mobile app dev"),Topic(topic:"front end dev"), Topic(topic:"form")]
+        topics=[Topic(topic:"mobile app dev"),Topic(topic:"front end dev"), Topic(topic:"form"),Topic(topic:"front-end development")]
     }
     
     init(content: String, topics: [Topic]){
@@ -31,7 +31,7 @@ class Task: Identifiable {
 
 @Model
 class Topic: Identifiable {
-    var id = UUID()
+    var id = UUID().uuidString
     var topic: String
     var counter: Int = 0
     init(topic: String){ // gives data for model to pull

@@ -21,10 +21,9 @@ struct TaskView: View {
             List {
                 ForEach(tasks) { task in
                     // create seperate view for each todo bar
-                    
                     EachTaskView(task: task)
                 }.onDelete(perform: deleteTasks)
-                    .listRowBackground(Color.background)
+                .listRowBackground(Color.background)
             }
             .toolbar {
                 

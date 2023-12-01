@@ -15,11 +15,11 @@ struct TimerView: View {
 //    @StateObject private var vm = TimerClass()
     
     // The task will hold a topic name associated with the topic in swiftdata
-    @Query private var tasks: [Task]
+    @Query var tasks: [Task]
     
     // Each topic will hold a name and a counter
-    @Query private var topics: [Topic]
-    @State var selectedTask: Task = Task(content: "balls", topics: [Topic(topic: "Cum")])
+    @Query var topics: [Topic]
+    @EnvironmentObject var dataModel: DataModel
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
@@ -38,24 +38,22 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                
-                Spacer()
-                
+
+       
                 // topic selection, if its empty, the picker wont display
                 if tasks.isEmpty {
                     EmptyView() // add a link to navigation here
                 }
                 else { // picker
                     HStack {
-                        Picker("Tasks", selection: $selectedTask) {
+                        Picker("Tasks", selection: $dataModel.selectedTask) {
                                       ForEach(tasks, id: \.self) { task in
                                           Text(task.content).tag(task.id)
                             }
                         }.pickerStyle(MenuPickerStyle())
-                    }   .padding(.vertical, 50)
+                    }  .padding(.top, 130)
                 }
-                
-                Spacer()
+    
 
               //  timer stack
                 HStack{
@@ -63,6 +61,7 @@ struct TimerView: View {
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                     .foregroundColor(Color.white)
                     .background(Image("tomato").resizable().frame(width: 327, height: 325))
+                    .padding(.top, 150)
                 
 //                HStack{
 //                    switch currentMode {
@@ -90,8 +89,10 @@ struct TimerView: View {
                     }
                 }
                 .frame(width: width)
+                .padding(.top, 150)
             }  // end of stack
             .padding(.horizontal, 70.0)
+            
             .onAppear {
                 modelContext.insert(Topic(topic: "Topic 1"))
                 modelContext.insert(Topic(topic: "Topic 2"))
@@ -103,7 +104,7 @@ struct TimerView: View {
         .background(Color(UIColor.background)
             .ignoresSafeArea())     }
 }
-
+//
 //
 //
 //#Preview {
