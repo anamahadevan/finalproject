@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var dataModel: DataModel
     var body: some View {
         VStack{
             Form {
