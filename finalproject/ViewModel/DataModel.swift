@@ -10,21 +10,21 @@ import Foundation
 class DataModel: ObservableObject{
     @Published var selectedTask: Task = Task(content: "ihateualex", topics: [Topic(topic: "fr")])
     
-   @Published var timer1 = 1500
-    @Published var timer2 = 1500
-    @Published var timer3 = 1500
+    @Published var timer1 = Date()
+    @Published var timer2 = Date()
+    @Published var timer3 = Date()
     
     init(){
-        timer1 = UserDefaults.standard.integer(forKey: "timer1")
-        timer2 = UserDefaults.standard.integer(forKey: "timer2")
-        timer3 = UserDefaults.standard.integer(forKey: "timer3")
+        timer1 = Date(timeIntervalSince1970: TimeInterval(UserDefaults.standard.integer(forKey: "timer1")))
+        timer2 = Date(timeIntervalSince1970: TimeInterval(UserDefaults.standard.integer(forKey: "timer2")))
+        timer3 = Date(timeIntervalSince1970: TimeInterval(UserDefaults.standard.integer(forKey: "timer3")))
         
     }
     
     func saveTimerSettings(){
-        UserDefaults.standard.setValue(timer1, forKey: "timer1")
-        UserDefaults.standard.setValue(timer2, forKey: "timer2")
-        UserDefaults.standard.setValue(timer3, forKey: "timer3")
+        UserDefaults.standard.setValue(Int(timer1.timeIntervalSince1970), forKey: "timer1")
+        UserDefaults.standard.setValue(Int(timer2.timeIntervalSince1970), forKey: "timer2")
+        UserDefaults.standard.setValue(Int(timer3.timeIntervalSince1970), forKey: "timer3")
     }
     
 }

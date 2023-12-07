@@ -58,21 +58,20 @@ struct TimerView: View {
               //  timer stack
                 HStack{
                     Text(newTimerModel.formattedTime)
+              
+                    switch currentMode {
+                    case .pom:
+                        PomodoroView()
+                    case .break1:
+                        BreakOneView()
+                    case .break2:
+                        BreakTwoView()
+                    }
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
-                    .foregroundColor(Color.white)
-                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
-                    .padding(.top, 150)
-                
-//                HStack{
-//                    switch currentMode {
-//                    case .pom:
-//                        PomodoroView()
-//                    case .break1:
-//                        BreakOneView()
-//                    case .break2:
-//                        BreakTwoView()
-//                    }
-//                }
+                .foregroundColor(Color.white)
+                .background(Image("tomato").resizable().frame(width: 327, height: 325))
+                .padding(.top, 150)
+            
                 
                 // timer controls
                 HStack(spacing:50) {

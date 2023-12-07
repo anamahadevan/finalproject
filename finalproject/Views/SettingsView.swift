@@ -33,33 +33,37 @@ struct SettingsView: View {
             .tint(.pink)
             .background(Color.background)
             .scrollContentBackground(.hidden)
+        }.onDisappear{
+            dataModel.saveTimerSettings()
         }
     }
 }
 
 struct PomodoroTime: View {
+    @EnvironmentObject var model: DataModel
     @State private var date = Date()
     
     var body: some View {
-        DatePicker("Pomodoro timer ", selection: $date, displayedComponents: [.hourAndMinute])
+        DatePicker("Pomodoro timer ", selection: $model.timer1, displayedComponents: [.hourAndMinute])
             .padding()
     }
 }
 
 struct BreakOneTimer: View {
     @State private var date = Date()
-    
+    @EnvironmentObject var model: DataModel
     var body: some View {
-        DatePicker("Break one timer ", selection: $date, displayedComponents: [.hourAndMinute])
+        DatePicker("Break 1 timer ", selection: $model.timer2, displayedComponents: [.hourAndMinute])
             .padding()
+     
     }
 }
 
 struct BreakTwoTimer: View {
     @State private var date = Date()
-    
+    @EnvironmentObject var model: DataModel
     var body: some View {
-        DatePicker("Break two timer ", selection: $date, displayedComponents: [.hourAndMinute])
+        DatePicker("Break 2 timer ", selection: $model.timer3, displayedComponents: [.hourAndMinute])
             .padding()
     }
 }

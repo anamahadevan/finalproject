@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BreakTwoView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("tbreak2").frame(width: 217, height: 42)
     }
 }
 
