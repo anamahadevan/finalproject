@@ -23,7 +23,7 @@ struct TimerView: View {
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let width: Double = 250
-    @StateObject var newTimerModel = NewTimerModel()
+    @StateObject var newTimerModel = NewTimerModel(tim)
     
     func UpdateTopicCounter() {
         // Using selectedTask
