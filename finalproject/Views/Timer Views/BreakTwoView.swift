@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BreakTwoView: View {
     var body: some View {
-        Image("tbreak2").frame(width: 217, height: 42)
+        Image("tbreak2").resizable().frame(width: 217, height: 42)
     }
 }
 

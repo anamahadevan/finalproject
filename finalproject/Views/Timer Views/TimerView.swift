@@ -56,8 +56,8 @@ struct TimerView: View {
     
 
               //  timer stack
-                HStack{
-                    Text(newTimerModel.formattedTime)
+                ZStack{
+                    
               
                     switch currentMode {
                     case .pom:
@@ -67,6 +67,9 @@ struct TimerView: View {
                     case .break2:
                         BreakTwoView()
                     }
+                    
+                    Text(newTimerModel.formattedTime)
+                    
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                 .foregroundColor(Color.white)
                 .background(Image("tomato").resizable().frame(width: 327, height: 325))
