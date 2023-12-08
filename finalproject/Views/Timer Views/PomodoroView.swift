@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PomodoroView: View {
     var body: some View {
-        Image("tomato").resizable().frame(width: 217, height: 42)
+        Image("tomato").resizable().frame(width: 217, height: 82)
     }
 }
 
