@@ -44,7 +44,6 @@ struct PomodoroTime: View {
     @State private var date = Date()
     
     var body: some View {
-//        Picker("Pomodoro length", selection: $model.timer1, )
         DatePicker("Pomodoro timer ", selection: $model.timer1, displayedComponents: [.hourAndMinute])
             .padding()
     }

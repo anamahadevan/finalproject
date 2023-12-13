@@ -16,7 +16,7 @@ enum TimerMode: String, CaseIterable{
 
 
 class NewTimerModel: ObservableObject{
-    @Published var timeRemaining : Int
+    @Published var timeRemaining = 1500
     @Published var todo: Todo = Todo()
     @Published var mode: TimerMode = .pom
     @Published var formattedTime: String = "25 : 00"
@@ -25,8 +25,9 @@ class NewTimerModel: ObservableObject{
     var modeIndex = 0
     var timer = Timer()
     
-    init(){}
-    
+    init(){
+        setupTimer()
+    }
     func setupTimer(){ //Starts a timer
         timer = Timer(fire: Date(), interval: 1.0, repeats: true, block: { timerFired in
       //Fired every second
