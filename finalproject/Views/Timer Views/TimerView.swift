@@ -52,8 +52,7 @@ struct TimerView: View {
 
               //  timer stack
                 ZStack{
-                    
-              
+                    // changes background based on current mode
                     switch currentMode {
                     case .pom:
                         PomodoroView()
@@ -64,10 +63,10 @@ struct TimerView: View {
                     }
                     
                     Text(newTimerModel.formattedTime)
-                    
+    
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                 .foregroundColor(Color.white)
-                .background(Image("tomato").resizable().frame(width: 327, height: 325))
+//                .background(Image("tomato").resizable().frame(width: 327, height: 325))
                 .padding(.top, 150)
             
                 
