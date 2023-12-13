@@ -55,7 +55,7 @@
 		91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTaskView.swift; sourceTree = "<group>"; };
 		91E29C472B19622400D808EE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		91E29C492B19687600D808EE /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		91E9FC8C2AE8C6820049ADAD /* finalproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91E9FC8C2AE8C6820049ADAD /* pomcat timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pomcat timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E9FC8F2AE8C6820049ADAD /* finalprojectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalprojectApp.swift; sourceTree = "<group>"; };
 		91E9FC912AE8C6820049ADAD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91E9FC932AE8C6840049ADAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		91E9FC8D2AE8C6820049ADAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91E9FC8C2AE8C6820049ADAD /* finalproject.app */,
+				91E9FC8C2AE8C6820049ADAD /* pomcat timer.app */,
 				91E9FC9C2AE8C6840049ADAD /* finalprojectTests.xctest */,
 				91E9FCA62AE8C6840049ADAD /* finalprojectUITests.xctest */,
 			);
@@ -223,9 +223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		91E9FC8B2AE8C6820049ADAD /* finalproject */ = {
+		91E9FC8B2AE8C6820049ADAD /* pomcat timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91E9FCB02AE8C6840049ADAD /* Build configuration list for PBXNativeTarget "finalproject" */;
+			buildConfigurationList = 91E9FCB02AE8C6840049ADAD /* Build configuration list for PBXNativeTarget "pomcat timer" */;
 			buildPhases = (
 				91E9FC882AE8C6820049ADAD /* Sources */,
 				91E9FC892AE8C6820049ADAD /* Frameworks */,
@@ -235,9 +235,9 @@
 			);
 			dependencies = (
 			);
-			name = finalproject;
+			name = "pomcat timer";
 			productName = finalproject;
-			productReference = 91E9FC8C2AE8C6820049ADAD /* finalproject.app */;
+			productReference = 91E9FC8C2AE8C6820049ADAD /* pomcat timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		91E9FC9B2AE8C6840049ADAD /* finalprojectTests */ = {
@@ -312,7 +312,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				91E9FC8B2AE8C6820049ADAD /* finalproject */,
+				91E9FC8B2AE8C6820049ADAD /* pomcat timer */,
 				91E9FC9B2AE8C6840049ADAD /* finalprojectTests */,
 				91E9FCA52AE8C6840049ADAD /* finalprojectUITests */,
 			);
@@ -392,12 +392,12 @@
 /* Begin PBXTargetDependency section */
 		91E9FC9E2AE8C6840049ADAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 91E9FC8B2AE8C6820049ADAD /* finalproject */;
+			target = 91E9FC8B2AE8C6820049ADAD /* pomcat timer */;
 			targetProxy = 91E9FC9D2AE8C6840049ADAD /* PBXContainerItemProxy */;
 		};
 		91E9FCA82AE8C6840049ADAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 91E9FC8B2AE8C6820049ADAD /* finalproject */;
+			target = 91E9FC8B2AE8C6820049ADAD /* pomcat timer */;
 			targetProxy = 91E9FCA72AE8C6840049ADAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -668,7 +668,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91E9FCB02AE8C6840049ADAD /* Build configuration list for PBXNativeTarget "finalproject" */ = {
+		91E9FCB02AE8C6840049ADAD /* Build configuration list for PBXNativeTarget "pomcat timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91E9FCB12AE8C6840049ADAD /* Debug */,
