@@ -12,7 +12,6 @@ struct HomeView: View {
     //calling in view model, not instantiating
     @ObservedObject var viewModel = TaskViewModel()
     var testMode = true
-    @StateObject var selectedTopic = Topic(String)
     // create view model for opening screen
     var body: some View {
 //        if !testMode {
