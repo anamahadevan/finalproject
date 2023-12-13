@@ -14,37 +14,41 @@ struct TaskView: View {
     @State private var taskInput: String = " "
     
     var body: some View {
-        NavigationSplitView {
-            
-            TextField("new task..", text: $taskInput)
-            
-            List {
-                ForEach(tasks) { task in
-                    // create seperate view for each todo bar
-                    EachTaskView(task: task)
-                }.onDelete(perform: deleteTasks)
-                .listRowBackground(Color.background)
-            }
-            .toolbar {
+        ZStack {
+            VStack {
                 
-//                ToolbarItem{
-//                    Navigation_CustomBackButton_Detail()
-//                }
+                TextField("new task..", text: $taskInput)
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                List {
+                    ForEach(tasks) { task in
+                        // create seperate view for each todo bar
+                        EachTaskView(task: task)
+                    }.onDelete(perform: deleteTasks)
+                    .listRowBackground(Color.accent)
                 }
-                ToolbarItem {
-                    Button(action: {
-                        addTasks(content: taskInput, topics: [Topic(topic: "Mobile App Dev"), Topic(topic: "Front End Dev"), Topic(topic: "Form")])
-                    }){
-                        Label("Add Item", systemImage: "plus")
+                .listStyle(.plain)
+                .toolbar {
+                    
+    //                ToolbarItem{
+    //                    Navigation_CustomBackButton_Detail()
+    //                }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                    ToolbarItem {
+                        Button(action: {
+                            addTasks(content: taskInput, topics: [Topic(TopicType.mobile.rawValue)])
+                        }){
+                            Label("Add Item", systemImage: "plus")
+                        }
                     }
                 }
-            }.background(Color(UIColor.background)
-            .ignoresSafeArea())
-        } detail: {Text("Select an item")}
+                
+            }
             
+        }
+        .background(Color(UIColor.background))
     }
     
     /////// adding and deleting tasks

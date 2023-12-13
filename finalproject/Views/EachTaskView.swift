@@ -10,16 +10,17 @@ import SwiftUI
 struct EachTaskView: View {
     //bindable makes manipulatable
     @Bindable var task: Task
-    @State private var selectedTopic = Topic(topic:"mobile")
+    @State private var selectedTopic = Topic("")
 
     
     var body: some View {
         HStack{
             TextField("enter new task", text: $task.content)
-            Picker("Topic: ", selection: $selectedTopic) {
-                ForEach(task.topics, id: \.self) {
-                    Text($0.topic)
-                }
+            Picker("Topic: ", selection: $task.topics) {
+                Text(TopicType.algos.rawValue).tag(Topic(TopicType.algos.rawValue))
+                Text(TopicType.front.rawValue).tag(Topic(TopicType.front.rawValue))
+                Text(TopicType.mobile.rawValue).tag(Topic(TopicType.mobile.rawValue))
+                Text(TopicType.study.rawValue).tag(Topic(TopicType.study.rawValue))
             }
         }
     }

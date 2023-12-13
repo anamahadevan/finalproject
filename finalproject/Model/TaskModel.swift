@@ -19,7 +19,7 @@ class Task: Identifiable, ObservableObject {
     // has a tag for the topic it is under
     init(){ // gives data for model to pull (empty)
         content=""
-        topics=[Topic(topic:"mobile app dev"),Topic(topic:"front end dev"), Topic(topic:"form"),Topic(topic:"front-end development")]
+        topics=[Topic(TopicType.front.rawValue),Topic(TopicType.algos.rawValue), Topic(TopicType.mobile.rawValue),Topic(TopicType.study.rawValue)]
     }
     
     init(content: String, topics: [Topic]){
@@ -34,7 +34,7 @@ class Topic: Identifiable {
     var id = UUID().uuidString
     var topic: String
     var counter: Int = 0
-    init(topic: String){ // gives data for model to pull
+    init(_ topic: String){ // gives data for model to pull
         self.topic=topic
     }
 }

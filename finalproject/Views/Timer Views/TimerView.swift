@@ -27,13 +27,7 @@ struct TimerView: View {
     @StateObject var newTimerModel = NewTimerModel()
     
     func UpdateTopicCounter() {
-        // Using selectedTask
-        // selectedTask.Topics should have only selected topic
-        // Get the selectedtopic name and search for it inside of swiftdata
-        // @Query private var topics: [Topic]
-        // Update the topic counter in swiftdata
-        //        print("Finished")
-        //        selectedTask?.topics[0].counter += 1
+        
     }
     
     var body: some View {
@@ -90,6 +84,15 @@ struct TimerView: View {
                         Image("reset").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
+                    Button("finsih", action: {
+                        newTimerModel.endTimer()
+                        guard let task = tasks.first else { return }
+                        guard let key = task.topics.first?.topic else { return }
+                        let count = UserDefaults.standard.integer(forKey: key)
+                        UserDefaults.standard.set(count+1, forKey: key)
+                        
+                        print(count, key)
+                    })
                 }
                 .frame(width: width)
                 .padding(.top, 150)
@@ -97,8 +100,8 @@ struct TimerView: View {
             .padding(.horizontal, 70.0)
             
             .onAppear {
-                modelContext.insert(Topic(topic: "Topic 1"))
-                modelContext.insert(Topic(topic: "Topic 2"))
+                modelContext.insert(Topic(TopicType.front.rawValue))
+                modelContext.insert(Topic(TopicType.mobile.rawValue))
             }
         }
         .task {

@@ -8,7 +8,7 @@
 import Foundation
 
 class DataModel: ObservableObject{
-    @Published var selectedTask: Task = Task(content: "ihateualex", topics: [Topic(topic: "fr")])
+    @Published var selectedTask: Task = Task(content: "ihateualex", topics: [Topic(TopicType.front.rawValue)])
     
     @Published var timer1 = Date()
     @Published var timer2 = Date()

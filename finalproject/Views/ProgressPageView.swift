@@ -28,7 +28,7 @@ struct ProgressPageView: View {
                 HStack{
                     
               
-                    ProgressWheel()
+                    ProgressWheel(type: .front)
                         .frame(width: 120, height: 112)
                         .offset( x: 30, y: 75)
                     
@@ -36,7 +36,7 @@ struct ProgressPageView: View {
                     Spacer()
                     
                     // circle background here
-                    ProgressWheel()
+                    ProgressWheel(type: .algos)
                         .frame(width: 110, height: 108)
                         .offset( x: -15, y: 0)
                     
@@ -58,14 +58,14 @@ struct ProgressPageView: View {
                     // HSTACK here with offset
                     
                     
-                    ProgressWheel()
+                    ProgressWheel(type: .mobile)
                         .frame(width: 110, height: 108)
                         .offset( x: 20, y: -55)
                     
                     Spacer()
                     
                     
-                    ProgressWheel()
+                    ProgressWheel(type: .study)
                         .frame(width: 110, height: 108)
                         .offset( x: 20, y: 25)
                     
@@ -95,12 +95,12 @@ struct ProgressPageView: View {
 struct ProgressWheel: View {
     
     // sets up progress cap to ten
-    @State var progress = 7.0
-    @State var topic: Topic = Topic(topic: "")
+    let type: TopicType
+    @State var count: Double = 0.0
     var body: some View {
         ZStack{
             //empty progress circle
-            Text(topic.topic)
+            Text(type.rawValue)
             VStack{
               
                 ProgressView(value: 10.0, total: 10.0)
@@ -109,16 +109,18 @@ struct ProgressWheel: View {
             }
             
             //actual progress
-            ProgressView(value: progress, total: 7.0)
+            ProgressView(value: count, total: 7.0)
                 .progressViewStyle(CircleProgress())
                 .frame(width: UIScreen.main.bounds.width/2)
             
             //displays number of tasks completed
-            Text(String(format:"%.1f", progress))
+            Text(String(format:"%.1f", count))
                 .foregroundColor(.accent)
                 .font(.largeTitle)
         }
-        
+        .onAppear {
+            count = Double(UserDefaults.standard.integer(forKey: type.rawValue))
+        }
     }
     
 }
