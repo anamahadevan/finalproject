@@ -36,18 +36,13 @@ struct TaskView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                                            Button(action: {
-                                                let taskInput = "Your task input" // Replace this with your task input
-                                                let topics: [Topic] = [Topic(TopicType.topicTwo.rawValue)] // Replace with your topics
-                                                
-                                                // Call the addTasks function with the provided parameters
-                                                addTasks(content: taskInput, topics: topics)
-                                            }) {
-                                                Image("plus") // Use your custom image name here
-                                                    .renderingMode(.original) // Ensure the original color of the image
-                                            }
-                                        }
+                    ToolbarItem {
+                        Button(action: {
+                            addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
+                        }){
+                            Label("", image: "plus")
+                        }
+                    }
                 }
                 
             }
