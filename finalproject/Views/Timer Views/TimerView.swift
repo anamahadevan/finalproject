@@ -33,7 +33,6 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-
        
                 // topic selection, if its empty, the picker wont display
                 if tasks.isEmpty {
@@ -46,7 +45,7 @@ struct TimerView: View {
                                           Text(task.content).tag(task.id)
                             }
                         }.pickerStyle(MenuPickerStyle())
-                    }  .padding(.top, 100)
+                    }
                 }
     
 
@@ -67,6 +66,7 @@ struct TimerView: View {
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
                     .foregroundColor(Color.white)
                     .background(Image("tomato").resizable().frame(width: 327, height: 325))
+                    .padding(.leading, 30)
 
                 // timer controls
                 HStack(spacing:50) {
