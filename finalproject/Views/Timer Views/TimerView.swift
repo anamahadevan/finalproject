@@ -46,11 +46,11 @@ struct TimerView: View {
                                           Text(task.content).tag(task.id)
                             }
                         }.pickerStyle(MenuPickerStyle())
-                    }  .padding(.top, 130)
+                    }  .padding(.top, 100)
                 }
     
 
-              //  timer stack
+                //  timer stack
                 ZStack{
                     // changes background based on current mode
                     switch currentMode {
@@ -63,13 +63,11 @@ struct TimerView: View {
                     }
                     
                     Text(newTimerModel.formattedTime)
-    
+                    
                 }.font(.system(size: 30, weight: .medium, design: .rounded))
-                .foregroundColor(Color.white)
-//                .background(Image("tomato").resizable().frame(width: 327, height: 325))
-                .padding(.top, 150)
-            
-                
+                    .foregroundColor(Color.white)
+                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
+
                 // timer controls
                 HStack(spacing:50) {
                     Button {
@@ -94,9 +92,8 @@ struct TimerView: View {
                     })
                 }
                 .frame(width: width)
-                .padding(.top, 150)
             }  // end of stack
-            .padding(.horizontal, 70.0)
+//            .padding(.horizontal, 70.0)
             
             .onAppear {
                 modelContext.insert(Topic(TopicType.front.rawValue))
