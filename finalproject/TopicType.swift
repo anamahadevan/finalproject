@@ -8,8 +8,8 @@
 import Foundation
 
 enum TopicType : String {
-    case front = "Front end"
-    case mobile = "Mobiole end"
-    case study = "independent study"
-    case algos = "algos"
+    case topicOne = "front end"
+    case topicTwo = "mobile dev"
+    case topicThree = "ui/ux"
+    case topicFour = "algos"
 }

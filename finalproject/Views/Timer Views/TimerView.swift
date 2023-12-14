@@ -1,57 +1,55 @@
-//
-//  TimerView.swift
-//  finalproject
-//
-//  Created by anabelle mahadevan on 10/26/23.
-//
 
 import SwiftUI
 import SwiftData
 
 struct TimerView: View {
+    
+    // import tasks
     @Environment(\.modelContext) private var modelContext
     
-    @State var currentMode: TimerMode = .break1
-//    @StateObject private var vm = TimerClass()
+    // set initial mode to be pomodoro
+    @State var currentMode: TimerMode = .pom
     
-    // The task will hold a topic name associated with the topic in swiftdata
+    //each task will hold a topic name
     @Query var tasks: [Task]
     
-    // Each topic will hold a name and a counter
+    // each topic will hold a name and a counter
     @Query var topics: [Topic]
     @EnvironmentObject var dataModel: DataModel
     
+    //timer refresh
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    private let width: Double = 250
 
     @StateObject var newTimerModel = NewTimerModel()
     
-    func UpdateTopicCounter() {
-        
-    }
-    
-    var body: some View {
+    var body: some View{
         GeometryReader { geometry in
-            VStack {
-       
-                // topic selection, if its empty, the picker wont display
-                if tasks.isEmpty {
-                    EmptyView() // add a link to navigation here
-                }
-                else { // picker
-                    HStack {
-                        Picker("Tasks", selection: $dataModel.selectedTask) {
-                                      ForEach(tasks, id: \.self) { task in
-                                          Text(task.content).tag(task.id)
-                            }
-                        }.pickerStyle(MenuPickerStyle())
+            
+            VStack{
+                // topic selection bar ; shows diff view when no tasks are added
+                HStack{
+                    if tasks.isEmpty {
+                        
+                        NavigationLink(destination: TaskView()){
+                            Image("addtask")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 205, height: 79)
+                            .clipped() // add a link to navigation here
+                        }
+                   
                     }
-                }
-    
-
-                //  timer stack
-                ZStack{
-                    // changes background based on current mode
+                    else { // picker
+                            Picker("Tasks", selection: $dataModel.selectedTask) {
+                                ForEach(tasks, id: \.self) { task in
+                                    Text(task.content).tag(task.id)
+                                }
+                            }.pickerStyle(.menu)
+                    }
+                }.padding(.leading, 30).padding(.top,170)
+                
+                ZStack{ // changes background based on the current mode
+                    
                     switch currentMode {
                     case .pom:
                         PomodoroView()
@@ -60,16 +58,14 @@ struct TimerView: View {
                     case .break2:
                         BreakTwoView()
                     }
-                    
                     Text(newTimerModel.formattedTime)
                     
-                }.font(.system(size: 30, weight: .medium, design: .rounded))
-                    .foregroundColor(Color.white)
-                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
-                    .padding(.leading, 30)
-
-                // timer controls
-                HStack(spacing:50) {
+                }.font(.system(size: 45, weight: .medium, design: .rounded))
+                    .foregroundColor(Color.accent)
+//                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
+                    .padding(.leading, 30).padding(.top,30)
+                
+                HStack(spacing: 50){ // timer controls
                     Button {
                         newTimerModel.startTimer()
                     } label: {
@@ -81,34 +77,11 @@ struct TimerView: View {
                         Image("reset").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
-                    Button("finsih", action: {
-                        newTimerModel.endTimer()
-                        guard let task = tasks.first else { return }
-                        guard let key = task.topics.first?.topic else { return }
-                        let count = UserDefaults.standard.integer(forKey: key)
-                        UserDefaults.standard.set(count+1, forKey: key)
-                        
-                        print(count, key)
-                    })
                 }
-                .frame(width: width)
-            }  // end of stack
-//            .padding(.horizontal, 70.0)
-            
-            .onAppear {
-                modelContext.insert(Topic(TopicType.front.rawValue))
-                modelContext.insert(Topic(TopicType.mobile.rawValue))
+                
             }
-        }
-        .task {
-            
-        }
-        .background(Color(UIColor.background)
-            .ignoresSafeArea())     }
+        }.background(Color(UIColor.background))
+            .ignoresSafeArea()
+    }
 }
-//
-//
-//
-//#Preview {
-//    TimerView()
-//}
+

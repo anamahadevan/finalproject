@@ -38,7 +38,7 @@ struct TaskView: View {
                     }
                     ToolbarItem {
                         Button(action: {
-                            addTasks(content: taskInput, topics: [Topic(TopicType.mobile.rawValue)])
+                            addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
                         }){
                             Label("Add Item", systemImage: "plus")
                         }

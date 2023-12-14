@@ -19,7 +19,7 @@ class Task: Identifiable, ObservableObject {
     // has a tag for the topic it is under
     init(){ // gives data for model to pull (empty)
         content=""
-        topics=[Topic(TopicType.front.rawValue),Topic(TopicType.algos.rawValue), Topic(TopicType.mobile.rawValue),Topic(TopicType.study.rawValue)]
+        topics=[Topic(TopicType.topicOne.rawValue),Topic(TopicType.topicFour.rawValue), Topic(TopicType.topicTwo.rawValue),Topic(TopicType.topicThree.rawValue)]
     }
     
     init(content: String, topics: [Topic]){

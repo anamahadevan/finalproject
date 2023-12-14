@@ -28,7 +28,7 @@ struct ProgressPageView: View {
                 HStack{
                     
               
-                    ProgressWheel(type: .front)
+                    ProgressWheel(type: .topicOne)
                         .frame(width: 120, height: 112)
                         .offset( x: 30, y: 75)
                     
@@ -36,7 +36,7 @@ struct ProgressPageView: View {
                     Spacer()
                     
                     // circle background here
-                    ProgressWheel(type: .algos)
+                    ProgressWheel(type: .topicFour)
                         .frame(width: 110, height: 108)
                         .offset( x: -15, y: 0)
                     
@@ -58,14 +58,14 @@ struct ProgressPageView: View {
                     // HSTACK here with offset
                     
                     
-                    ProgressWheel(type: .mobile)
+                    ProgressWheel(type: .topicTwo)
                         .frame(width: 110, height: 108)
                         .offset( x: 20, y: -55)
                     
                     Spacer()
                     
                     
-                    ProgressWheel(type: .study)
+                    ProgressWheel(type: .topicThree)
                         .frame(width: 110, height: 108)
                         .offset( x: 20, y: 25)
                     
@@ -122,7 +122,6 @@ struct ProgressWheel: View {
             count = Double(UserDefaults.standard.integer(forKey: type.rawValue))
         }
     }
-    
 }
 
 struct CircleProgress: ProgressViewStyle {
