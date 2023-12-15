@@ -96,27 +96,30 @@ struct ProgressWheel: View {
     
     // sets up progress cap to ten
     let type: TopicType
-    @State var count: Double = 0.0
+    @State var count: Double = 0
     var body: some View {
         ZStack{
-            //empty progress circle
-            Text(type.rawValue)
+
+
             VStack{
               
-                ProgressView(value: 10.0, total: 10.0)
+                ProgressView(value: 10, total: 10)
                     .progressViewStyle(CircleProgress(strokeColor: Color.pink))
                     .frame(width: UIScreen.main.bounds.width/2)
             }
             
             //actual progress
-            ProgressView(value: count, total: 7.0)
+            ProgressView(value: count, total: 7)
                 .progressViewStyle(CircleProgress())
                 .frame(width: UIScreen.main.bounds.width/2)
             
             //displays number of tasks completed
-            Text(String(format:"%.1f", count))
+            Text(String(count))
                 .foregroundColor(.accent)
                 .font(.largeTitle)
+            
+            //empty progress circle
+            Text(type.rawValue)
         }
         .onAppear {
             count = Double(UserDefaults.standard.integer(forKey: type.rawValue))

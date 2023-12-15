@@ -56,7 +56,7 @@ struct TimerView: View {
                     case .break1:
                         BreakOneView()
                     case .break2:
-                        BreakTwoView()
+                        NavigationLink(destination: BreakTwoView())
                     }
                     Text(newTimerModel.formattedTime)
                     
