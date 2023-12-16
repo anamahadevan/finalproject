@@ -7,8 +7,7 @@ struct TimerView: View {
     // import tasks
     @Environment(\.modelContext) private var modelContext
     
-    // set initial mode to be pomodoro
-    @State var currentMode: TimerMode = .pom
+    
     
     //each task will hold a topic name
     @Query var tasks: [Task]
@@ -50,13 +49,13 @@ struct TimerView: View {
                 
                 ZStack{ // changes background based on the current mode
                     
-                    switch currentMode {
+                    switch newTimerModel.mode {
                     case .pom:
                         PomodoroView()
                     case .break1:
                         BreakOneView()
                     case .break2:
-                        NavigationLink(destination: BreakTwoView())
+                       BreakTwoView()
                     }
                     Text(newTimerModel.formattedTime)
                     
@@ -73,10 +72,19 @@ struct TimerView: View {
                             .frame(width: 45.30544, height: 51.78119)
                     }
                     
-                    Button(action: {newTimerModel.endTimer()}){
-                        Image("reset").resizable()
+                    Button(action: {newTimerModel.pauseTimer()}){
+                        Image(systemName:"pause").resizable()
                             .frame(width: 45.30544, height: 51.78119)
                     }
+                    
+                    Button("finish", action: {
+                        newTimerModel.endTimer()
+                        let key = dataModel.selectedTask.topicType.rawValue
+                                           let count = UserDefaults.standard.integer(forKey: key)
+                                           UserDefaults.standard.set(count+1, forKey: key)
+                                           
+                                           print(count, key)
+                                       })
                 }
                 
             }

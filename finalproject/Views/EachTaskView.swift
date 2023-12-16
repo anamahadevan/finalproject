@@ -15,12 +15,14 @@ struct EachTaskView: View {
     var body: some View {
         HStack{
             TextField("enter new task", text: $task.content)
-            Picker("Topic: ", selection: $task.topics) {
-                Text(TopicType.topicFour.rawValue).tag(Topic(TopicType.topicFour.rawValue))
-                Text(TopicType.topicOne.rawValue).tag(Topic(TopicType.topicOne.rawValue))
-                Text(TopicType.topicTwo.rawValue).tag(Topic(TopicType.topicTwo.rawValue))
-                Text(TopicType.topicThree.rawValue).tag(Topic(TopicType.topicThree.rawValue))
+            Picker("Topic: ", selection: $task.topicType) {
+                Text(TopicType.topicFour.rawValue).tag(TopicType.topicFour)
+                Text(TopicType.topicOne.rawValue).tag(TopicType.topicOne)
+                Text(TopicType.topicTwo.rawValue).tag(TopicType.topicTwo)
+                Text(TopicType.topicThree.rawValue).tag(TopicType.topicThree)
             }
+            
+            Text(task.topics.description)
         }
     }
 }

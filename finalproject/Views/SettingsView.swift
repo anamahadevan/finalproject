@@ -33,38 +33,77 @@ struct SettingsView: View {
             .tint(.pink)
             .background(Color.background)
             .scrollContentBackground(.hidden)
-        }.onDisappear{
-            dataModel.saveTimerSettings()
         }
+    }
+}
+
+class SelectedTime: Equatable {
+    static func == (lhs: SelectedTime, rhs: SelectedTime) -> Bool {
+        return false
+    }
+    
+    var min: Int = 0
+    var sec: Int = 0
+    
+    func secondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }
 
 struct PomodoroTime: View {
     @EnvironmentObject var model: DataModel
-    @State private var date = Date()
+    @State private var time: SelectedTime = .init()
     
     var body: some View {
-        DatePicker("Pomodoro timer ", selection: $model.timer1, displayedComponents: [.hourAndMinute])
-            .padding()
+        VStack {
+            Text("pomodoro time")
+            HStack {
+                RangePicker(selected: $time.min, min: 0, max: 31)
+                RangePicker(selected: $time.sec, min: 0, max: 61)
+            }
+        }
+        .onChange(of: time) { _, new in
+            UserDefaults.standard.setValue(new.min*60+new.sec, forKey: "pom")
+        }
+        .onAppear() {
+            print( UserDefaults.standard.integer(forKey: "pom"))
+        }
     }
 }
 
 struct BreakOneTimer: View {
-    @State private var date = Date()
     @EnvironmentObject var model: DataModel
+    @State private var time: SelectedTime = .init()
+    
     var body: some View {
-        DatePicker("Break 1 timer ", selection: $model.timer2, displayedComponents: [.hourAndMinute])
-            .padding()
-     
+        VStack {
+            Text("break 1")
+            HStack {
+                RangePicker(selected: $time.min, min: 0, max: 31)
+                RangePicker(selected: $time.sec, min: 0, max: 61)
+            }
+        }
+        .onChange(of: time) { _, new in
+            UserDefaults.standard.setValue(new.min*60+new.sec, forKey: "break1")
+        }
     }
 }
 
 struct BreakTwoTimer: View {
-    @State private var date = Date()
     @EnvironmentObject var model: DataModel
+    @State private var time: SelectedTime = .init()
+    
     var body: some View {
-        DatePicker("Break 2 timer ", selection: $model.timer3, displayedComponents: [.hourAndMinute])
-            .padding()
+        VStack {
+            Text("break 2")
+            HStack {
+                RangePicker(selected: $time.min, min: 0, max: 31)
+                RangePicker(selected: $time.sec, min: 0, max: 61)
+            }
+        }
+        .onChange(of: time) { _, new in
+            UserDefaults.standard.setValue(new.min*60+new.sec, forKey: "break2")
+        }
     }
 }
 

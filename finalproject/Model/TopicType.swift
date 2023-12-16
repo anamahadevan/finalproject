@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TopicType : String {
+enum TopicType : String, Codable {
     case topicOne = "front end"
     case topicTwo = "mobile dev"
     case topicThree = "ui/ux"

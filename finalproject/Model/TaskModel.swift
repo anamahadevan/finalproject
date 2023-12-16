@@ -17,17 +17,23 @@ class Task: Identifiable, ObservableObject {
     var content: String // each individual task
     @Relationship(deleteRule: .cascade) var topics = [Topic]()
     // has a tag for the topic it is under
+    //indicates topic type
+    var topicType: TopicType
     init(){ // gives data for model to pull (empty)
         content=""
         topics=[Topic(TopicType.topicOne.rawValue),Topic(TopicType.topicFour.rawValue), Topic(TopicType.topicTwo.rawValue),Topic(TopicType.topicThree.rawValue)]
+        self.topicType = TopicType.topicOne
     }
     
     init(content: String, topics: [Topic]){
         self.content = content
         self.topics = topics
+        self.topicType = TopicType.topicOne // tells the data its not optional.
     }
     
 }
+
+
 
 @Model
 class Topic: Identifiable {

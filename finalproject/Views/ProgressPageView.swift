@@ -19,6 +19,7 @@ struct ProgressPageView: View {
     
     // Each topic will hold a name and a counter
     @Query var topics: [Topic]
+    
    // @EnvironmentObject var dataModel: DataModel
     // create view model for opening screen
     var body: some View {
