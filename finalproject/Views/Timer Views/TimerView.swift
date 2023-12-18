@@ -69,12 +69,12 @@ struct TimerView: View {
                     Button {
                         newTimerModel.startTimer()
                     } label: {
-                        Image(systemName:"play").resizable()
+                        Image("play").resizable()
                             .frame(width: 45, height: 50)
                     }
                     
                     Button(action: {newTimerModel.pauseTimer()}){
-                        Image(systemName:"pause").resizable()
+                        Image("pause").resizable()
                             .frame(width: 45, height: 50)
                     }
                     
@@ -92,8 +92,8 @@ struct TimerView: View {
                     
                 } .padding()
                     .padding(.leading, 50)
-                    .foregroundColor(Color.tomato)
-                    .background(Color.accent)
+                    .foregroundColor(Color.red)
+                    .background(Color.tomato)
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 
                 

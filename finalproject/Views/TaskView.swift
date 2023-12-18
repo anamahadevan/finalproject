@@ -29,9 +29,7 @@ struct TaskView: View {
                 .listStyle(.plain)
                 .toolbar {
                     
-    //                ToolbarItem{
-    //                    Navigation_CustomBackButton_Detail()
-    //                }
+                
                     
                     ToolbarItem{
                         EditButton()
@@ -39,7 +37,7 @@ struct TaskView: View {
                     ToolbarItem {
                         Button(action: {
                             addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                        }){Label("", systemImage: "plus").foregroundColor(Color.accent)}
+                        }){Label("", image: "plus").frame(width: 5, height:5).foregroundColor(Color.accent)}
                     }
                 }
                 
