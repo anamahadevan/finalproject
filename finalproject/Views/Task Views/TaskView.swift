@@ -22,31 +22,30 @@ struct TaskView: View {
                 List {
                     ForEach(tasks) { task in
                         // create seperate view for each todo bar
-                        EachTaskView(task: task)
+                        EachTaskView(task: task).clipShape(Capsule())
                     }.onDelete(perform: deleteTasks)
                     .listRowBackground(Color.accent)
+                    
                 }
                 .listStyle(.plain)
-                .toolbar {
-                    
-                    ToolbarItem{ // edit/delete new tasks
-                        EditButton()
-                    }
-                    
-                    ToolbarItem { // add new tasks
-                        Button(action: {
-                            addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                        }){Label("", image: "plus").frame(width: 5, height:5).foregroundColor(Color.accent)}.aspectRatio(contentMode: .fit)
-                    }
+            } .toolbar {
+                
+                ToolbarItem{ // edit/delete new tasks
+                    EditButton()
                 }
                 
-            
-                
-            }
+                ToolbarItem { // add new tasks
+                    Button(action: {
+                        addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
+                    }){Label("", systemImage: "plus").foregroundColor(Color.accent).frame(width: 5, height:5)}.aspectRatio(contentMode: .fit)
+                }
+            }.background(Color.background).foregroundColor(Color.accent)
             
         }
         .background(Color(UIColor.background))
     }
+    
+    
     
     /////// adding and deleting tasks
     

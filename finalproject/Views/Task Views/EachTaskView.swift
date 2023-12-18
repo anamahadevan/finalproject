@@ -14,6 +14,7 @@ struct EachTaskView: View {
     
     var body: some View {
         HStack{
+            Image("bmo").resizable().frame(width: 40,height: 40)
             TextField("enter new task", text: $task.content).foregroundColor(.brown)
             Picker("Topic: ", selection: $task.topicType) {
                 Text(TopicType.topicFour.rawValue).tag(TopicType.topicFour).foregroundColor(.brown)
@@ -22,6 +23,6 @@ struct EachTaskView: View {
                 Text(TopicType.topicThree.rawValue).tag(TopicType.topicThree).foregroundColor(.brown)
             }.foregroundColor(.brown)
             
-        }
+        }.clipShape(Capsule())
     }
 }

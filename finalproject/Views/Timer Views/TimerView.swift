@@ -60,10 +60,9 @@ struct TimerView: View {
                     case .break2:
                        BreakTwoView()
                     }
-                    Text(newTimerModel.formattedTime)
+                    Text(newTimerModel.formattedTime).foregroundColor(Color.accent)
                     
                 }.font(.system(size: 45, weight: .medium, design: .rounded))
-                    .foregroundColor(Color.accent)
                     .padding(.leading, 30).padding(.top,30)
                 
                 HStack(){ // timer controls
