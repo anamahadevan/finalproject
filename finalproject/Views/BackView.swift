@@ -13,13 +13,9 @@ struct BackView: View {
     var body: some View {
         Button(action: action) {
             HStack {
-                Image(systemName: "arrow.left") // Using a system image for the back icon
+                Image("back")
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.blue) // You can customize the color
-
-                Text("Back")
-                    .fontWeight(.semibold)
-                    .foregroundColor(.blue) // Customize the text color
             }
             .padding() // Add padding for a better touch area
         }

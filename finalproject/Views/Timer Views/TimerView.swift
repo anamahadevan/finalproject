@@ -46,7 +46,7 @@ struct TimerView: View {
                                     }
                                 }.pickerStyle(.menu)
                         }
-                    }.padding()  .background(Color.tomato,in: Capsule()).foregroundColor(Color.accent)
+                    }  .background(Color.tomato,in: Capsule()).foregroundColor(Color.accent)
                 }.padding(.leading, 30).padding(.top,170)
                    
                 

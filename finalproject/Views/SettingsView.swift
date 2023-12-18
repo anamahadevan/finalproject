@@ -38,11 +38,20 @@ struct SettingsView: View {
     }
 }
 
-class SelectedTime: Equatable {
-    static func == (lhs: SelectedTime, rhs: SelectedTime) -> Bool {
-        return false
-    }
-    
+//class SelectedTime: Equatable {
+//    static func == (lhs: SelectedTime, rhs: SelectedTime) -> Bool {
+//        return false
+//    }
+//    
+//    var min: Int = 0
+//    var sec: Int = 0
+//    
+//    func secondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
+//        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+//    }
+//}
+
+struct SelectedTime: Equatable {
     var min: Int = 0
     var sec: Int = 0
     
@@ -50,6 +59,7 @@ class SelectedTime: Equatable {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }
+
 
 struct PomodoroTime: View {
     @EnvironmentObject var model: DataModel

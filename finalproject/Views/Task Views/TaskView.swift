@@ -29,15 +29,14 @@ struct TaskView: View {
                 .listStyle(.plain)
                 .toolbar {
                     
-                
-                    
-                    ToolbarItem{
+                    ToolbarItem{ // edit/delete new tasks
                         EditButton()
                     }
-                    ToolbarItem {
+                    
+                    ToolbarItem { // add new tasks
                         Button(action: {
                             addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                        }){Label("", image: "plus").frame(width: 5, height:5).foregroundColor(Color.accent)}
+                        }){Label("", image: "plus").frame(width: 5, height:5).foregroundColor(Color.accent)}.aspectRatio(contentMode: .fit)
                     }
                 }
                 
