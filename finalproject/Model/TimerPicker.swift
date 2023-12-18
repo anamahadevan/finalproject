@@ -20,7 +20,7 @@ struct TimerPicker: View {
                 }
                 .frame( height: 90).pickerStyle(.wheel) .foregroundColor(.brown)
             }
-        }.background(Color.background)
+        }.background(Color.accent)
 //            .scaleEffect(CGSize(width: 1, height: 1))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
