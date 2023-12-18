@@ -21,7 +21,7 @@ struct EachTaskView: View {
                 Text(TopicType.topicOne.rawValue).tag(TopicType.topicOne).foregroundColor(.brown)
                 Text(TopicType.topicTwo.rawValue).tag(TopicType.topicTwo).foregroundColor(.brown)
                 Text(TopicType.topicThree.rawValue).tag(TopicType.topicThree).foregroundColor(.brown)
-            }.foregroundColor(.brown)
+            }.accentColor(.brown)
             
         }.clipShape(Capsule())
     }

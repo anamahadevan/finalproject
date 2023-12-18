@@ -37,7 +37,9 @@ struct TaskView: View {
                 ToolbarItem { // add new tasks
                     Button(action: {
                         addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                    }){Label("Add", systemImage: "plus")
+                    }) {
+                        Label("Add", systemImage: "plus")
+                            .accentColor(Color.accent) // Apply the accent color directly to the label
                     }
                 }
             }.foregroundColor(Color.accent) .accentColor(Color.accent)

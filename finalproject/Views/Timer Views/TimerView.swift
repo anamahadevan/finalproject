@@ -44,7 +44,7 @@ struct TimerView: View {
                                     ForEach(tasks, id: \.self) { task in
                                         Text(task.content).tag(task.id)
                                     }
-                                }.pickerStyle(.menu)
+                                }.pickerStyle(.menu) .accentColor(Color.accent)
                         }
                     }  .background(Color.tomato,in: Capsule()).foregroundColor(Color.accent)
                 }.padding(.leading, 30).padding(.top,170)
