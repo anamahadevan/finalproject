@@ -82,17 +82,6 @@ struct ProgressPageView: View {
 }
 
 
-//struct ProgressPageView: View {
-//    var body: some View {
-//        GeometryReader { geometry in
-//            VStack{
-//                ProgressWheel()
-//            }
-//        }
-//        .background(Color(UIColor.background)
-//            .ignoresSafeArea())     }
-//}
-
 struct ProgressWheel: View {
     
     // sets up progress cap to ten
@@ -105,13 +94,13 @@ struct ProgressWheel: View {
             VStack{
               
                 ProgressView(value: 10, total: 10)
-                    .progressViewStyle(CircleProgress(strokeColor: Color.pink))
+//                    .progressViewStyle(CircleProgress(strokeColor: Color.pink))
                     .frame(width: UIScreen.main.bounds.width/2)
             }
             
             //actual progress
             ProgressView(value: count, total: 7)
-                .progressViewStyle(CircleProgress())
+//                .progressViewStyle(CircleProgress())
                 .frame(width: UIScreen.main.bounds.width/2)
             
             //displays number of tasks completed

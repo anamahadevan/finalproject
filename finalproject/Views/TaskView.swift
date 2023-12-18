@@ -33,17 +33,17 @@ struct TaskView: View {
     //                    Navigation_CustomBackButton_Detail()
     //                }
                     
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem{
                         EditButton()
                     }
                     ToolbarItem {
                         Button(action: {
                             addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                        }){
-                            Label("", image: "plus")
-                        }
+                        }){Label("", systemImage: "plus").foregroundColor(Color.accent)}
                     }
                 }
+                
+            
                 
             }
             

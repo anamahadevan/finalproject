@@ -186,7 +186,6 @@
 				91FA7C8F2AFE2C9800A27C55 /* CustomBackView.swift */,
 				9166570E2B1518350043A8F8 /* Timer Views */,
 				91E9FCC32AEAF80B0049ADAD /* TaskView.swift */,
-				918101CA2B2BA0F300F026A3 /* TaskPicker.swift */,
 				91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */,
 				91E9FCC52AEAFB1F0049ADAD /* ProgressPageView.swift */,
 				91E29C492B19687600D808EE /* TestView.swift */,
@@ -199,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				918101C62B2A612700F026A3 /* TopicType.swift */,
+				918101CA2B2BA0F300F026A3 /* TaskPicker.swift */,
 				918101CC2B2D221D00F026A3 /* RangePicker.swift */,
 				91E9FCCD2AF076F20049ADAD /* TaskModel.swift */,
 				91FA7C912AFF2E3800A27C55 /* TimerModel.swift */,
