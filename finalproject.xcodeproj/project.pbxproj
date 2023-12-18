@@ -11,6 +11,7 @@
 		918101C72B2A612700F026A3 /* TopicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918101C62B2A612700F026A3 /* TopicType.swift */; };
 		918101CB2B2BA0F300F026A3 /* TaskPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918101CA2B2BA0F300F026A3 /* TaskPicker.swift */; };
 		918101CD2B2D221D00F026A3 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918101CC2B2D221D00F026A3 /* RangePicker.swift */; };
+		918101CF2B3038CD00F026A3 /* TimerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918101CE2B3038CD00F026A3 /* TimerControlsView.swift */; };
 		91842B9F2AFAD1600065ABE8 /* EachTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */; };
 		91E29C482B19622400D808EE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29C472B19622400D808EE /* DataModel.swift */; };
 		91E29C4A2B19687600D808EE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29C492B19687600D808EE /* TestView.swift */; };
@@ -54,6 +55,7 @@
 		918101C62B2A612700F026A3 /* TopicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicType.swift; sourceTree = "<group>"; };
 		918101CA2B2BA0F300F026A3 /* TaskPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPicker.swift; sourceTree = "<group>"; };
 		918101CC2B2D221D00F026A3 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
+		918101CE2B3038CD00F026A3 /* TimerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlsView.swift; sourceTree = "<group>"; };
 		91842B9E2AFAD1600065ABE8 /* EachTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachTaskView.swift; sourceTree = "<group>"; };
 		91E29C472B19622400D808EE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		91E29C492B19687600D808EE /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				91E9FCBA2AEAE8380049ADAD /* TimerView.swift */,
+				918101CE2B3038CD00F026A3 /* TimerControlsView.swift */,
 				9166570F2B1518590043A8F8 /* TimerBackgroundViews.swift */,
 			);
 			path = "Timer Views";
@@ -370,6 +373,7 @@
 				91842B9F2AFAD1600065ABE8 /* EachTaskView.swift in Sources */,
 				918101CD2B2D221D00F026A3 /* RangePicker.swift in Sources */,
 				91E9FC902AE8C6820049ADAD /* finalprojectApp.swift in Sources */,
+				918101CF2B3038CD00F026A3 /* TimerControlsView.swift in Sources */,
 				91E9FCCE2AF076F20049ADAD /* TaskModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
