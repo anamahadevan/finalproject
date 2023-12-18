@@ -30,20 +30,25 @@ struct ProgressPageView: View {
                 
                     
                     ZStack{
-//                            Image( "calico").resizable()
-//                            .frame(width: 125, height: 130)
+                            Image( "win").resizable()
+                            .frame(width: 115, height: 100)
                             
                         ProgressWheel(type: .topicOne).frame(width: 120, height: 112)
-                            .offset( y: 75)
-                    }
+                            .offset( y: 55)
+                    }     .offset( x: 20, y: -9)
                     
                     
                     Spacer()
                     
-                    // circle background here
-                    ProgressWheel(type: .topicFour)
-                        .frame(width: 110, height: 108)
-                        .offset( x: -15, y: 0)
+                    ZStack{
+                            Image( "siam").resizable()
+                            .frame(width: 115, height: 100)
+                            
+                        ProgressWheel(type: .topicFour)
+                            .frame(width: 110, height: 108)
+                            .offset( y: 55)
+                    }.offset(  x: -20, y: 39)
+                   
                     
                 }.padding(.vertical, 20.0)
                 
@@ -60,19 +65,27 @@ struct ProgressPageView: View {
                 
                 
                 HStack{
-                    // HSTACK here with offset
                     
+                    ZStack{
+                            Image( "calico").resizable()
+                            .frame(width: 115, height: 100)
+                            
+                        ProgressWheel(type: .topicTwo).frame(width: 120, height: 112)
+                            .offset( y: 55)
+                    }     .offset( x: 20, y: -29)
                     
-                    ProgressWheel(type: .topicTwo)
-                        .frame(width: 110, height: 108)
-                        .offset( x: 20, y: -55)
                     
                     Spacer()
                     
                     
-                    ProgressWheel(type: .topicThree)
-                        .frame(width: 110, height: 108)
-                        .offset( x: 20, y: 25)
+                    ZStack{
+                            Image( "bmo").resizable()
+                            .frame(width: 115, height: 100)
+                            
+                        ProgressWheel(type: .topicThree)
+                            .frame(width: 110, height: 108)
+                            .offset( y: 55)
+                    }.offset(  x: 20, y: -59)
                     
                 } .padding([.bottom, .trailing], 30)
                 
@@ -96,13 +109,15 @@ struct ProgressWheel: View {
             
             //displays number of tasks completed
             Text(String(count))
-                .foregroundColor(.accent)
+                .foregroundColor(.brown)
                 .font(.largeTitle)
               
             
             //title lf topic
-            Text(type.rawValue).padding().background(Color.accent,in: Capsule())
-                .foregroundColor(.brown)
+            NavigationLink(destination: TaskView()){
+                Text(type.rawValue).padding().background(Color.accent,in: Capsule())
+                    .foregroundColor(.brown)
+            }
         }
     }
 }
