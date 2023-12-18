@@ -4,14 +4,21 @@
 //
 //  Created by anabelle mahadevan on 12/18/23.
 //
-
 import SwiftUI
+import SwiftData
 
 struct TimerControlsView: View {
+    
     // import tasks
     @Environment(\.modelContext) private var modelContext
     
-
+    
+    
+    //each task will hold a topic name
+    @Query var tasks: [Task]
+    
+    // each topic will hold a name and a counter
+    @Query var topics: [Topic]
     @EnvironmentObject var dataModel: DataModel
     
     //timer refresh
@@ -45,10 +52,9 @@ struct TimerControlsView: View {
                 Image("skip").resizable()
                     .frame(width: 45, height: 50)
             }
-        }.background(Color.tomato)
-            .padding()
-                   .foregroundColor(Color.accent)
-                   .clipShape(Capsule())
+        }  .padding()
+            .background(Color.tomato,in: Capsule())
+        
 
         
     }

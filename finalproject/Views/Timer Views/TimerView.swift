@@ -61,12 +61,37 @@ struct TimerView: View {
                     
                 }.font(.system(size: 45, weight: .medium, design: .rounded))
                     .foregroundColor(Color.accent)
-//                    .background(Image("tomato").resizable().frame(width: 327, height: 325))
                     .padding(.leading, 30).padding(.top,30)
                 
                 HStack(){ // timer controls
-                    TimerControlsView()
-                }
+                    HStack(spacing: 35){ // timer controls
+                        
+                        Button {
+                            newTimerModel.startTimer()
+                        } label: {
+                            Image("play").resizable()
+                                .frame(width: 45, height: 50)
+                        }
+                        
+                        Button(action: {newTimerModel.pauseTimer()}){
+                            Image("pause").resizable()
+                                .frame(width: 45, height: 50)
+                        }
+                        
+                        Button {
+                            newTimerModel.endTimer()
+                            let key = dataModel.selectedTask.topicType.rawValue
+                            let count = UserDefaults.standard.integer(forKey: key)
+                            UserDefaults.standard.set(count+1, forKey: key)
+                            
+                            print(count, key)
+                        } label: {
+                            Image("skip").resizable()
+                                .frame(width: 45, height: 50)
+                        }
+                    }  .padding()
+                        .background(Color.tomato,in: Capsule())
+                } .padding(.leading, 30)
                 
                 
             }
