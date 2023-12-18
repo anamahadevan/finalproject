@@ -14,18 +14,19 @@ struct SettingsView: View {
             Form {
                 Image("settingstitle")
                     .resizable()
-                    .frame(width: 340, height: 100)
+                    .frame(width: 340, height:120)
                     .listRowBackground(Color.background)
+                
+                Section{
+                    Text("The Pomodoro Technique is a time management method based on 25-minute stretches of focused work broken by five-minute breaks. Longer breaks, typically 15 to 30 minutes, are taken after four consecutive work intervals. Each work interval is called a pomodoro, the Italian word for tomato ")
+                }.listRowBackground(Color.accent)
                 
                 Section(header: Image("timersettings").foregroundColor(.white)){
                     PomodoroTime()
-                    Image("border")
-                        .resizable()
-                        .frame(width: 340, height: 100)
                     BreakOneTimer()
-                    Image("border")
-                        .resizable()
-                        .frame(width: 340, height: 100)
+//                    Image("border")
+//                        .resizable()
+//                        .frame(width: 340, height: 100)
                     BreakTwoTimer()
                 }.listRowBackground(Color.accent)
                     
@@ -58,8 +59,8 @@ struct PomodoroTime: View {
         VStack {
             Text("pomodoro time")
             HStack {
-                RangePicker(selected: $time.min, min: 0, max: 31)
-                RangePicker(selected: $time.sec, min: 0, max: 61)
+                TimerPicker(selected: $time.min, min: 0, max: 31)
+                TimerPicker(selected: $time.sec, min: 0, max: 61)
             }
         }
         .onChange(of: time) { _, new in
@@ -79,8 +80,8 @@ struct BreakOneTimer: View {
         VStack {
             Text("break 1")
             HStack {
-                RangePicker(selected: $time.min, min: 0, max: 31)
-                RangePicker(selected: $time.sec, min: 0, max: 61)
+                TimerPicker(selected: $time.min, min: 0, max: 31)
+                TimerPicker(selected: $time.sec, min: 0, max: 61)
             }
         }
         .onChange(of: time) { _, new in
@@ -97,8 +98,8 @@ struct BreakTwoTimer: View {
         VStack {
             Text("break 2")
             HStack {
-                RangePicker(selected: $time.min, min: 0, max: 31)
-                RangePicker(selected: $time.sec, min: 0, max: 61)
+                TimerPicker(selected: $time.min, min: 0, max: 31)
+                TimerPicker(selected: $time.sec, min: 0, max: 61)
             }
         }
         .onChange(of: time) { _, new in
