@@ -18,7 +18,7 @@ struct TimerPicker: View {
                         Text(String(format: "%02d", $0))
                     }
                 }
-                .frame( height: 90).pickerStyle(.wheel) .foregroundColor(.brown)
+                .frame( height: 90).pickerStyle(.wheel)  
             }
         }.background(Color.accent)
 //            .scaleEffect(CGSize(width: 1, height: 1))

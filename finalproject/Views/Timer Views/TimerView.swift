@@ -27,25 +27,28 @@ struct TimerView: View {
             VStack{
                 // topic selection bar ; shows diff view when no tasks are added
                 HStack{
-                    if tasks.isEmpty {
-                        
-                        NavigationLink(destination: TaskView()){
-                            Image("addtask")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 205, height: 79)
-                            .clipped() // add a link to navigation here
+                    HStack{
+                        if tasks.isEmpty {
+                            
+                            NavigationLink(destination: TaskView()){
+                                Image("addtask")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 205, height: 79)
+                                .clipped() // add a link to navigation here
+                            }
+                       
                         }
-                   
-                    }
-                    else { // picker
-                            Picker("Tasks", selection: $dataModel.selectedTask) {
-                                ForEach(tasks, id: \.self) { task in
-                                    Text(task.content).tag(task.id)
-                                }
-                            }.pickerStyle(.menu)
-                    }
+                        else { // picker
+                                Picker("Tasks", selection: $dataModel.selectedTask) {
+                                    ForEach(tasks, id: \.self) { task in
+                                        Text(task.content).tag(task.id)
+                                    }
+                                }.pickerStyle(.menu)
+                        }
+                    }.padding()  .background(Color.tomato,in: Capsule()).foregroundColor(Color.accent)
                 }.padding(.leading, 30).padding(.top,170)
+                   
                 
                 ZStack{ // changes background based on the current mode
                     
