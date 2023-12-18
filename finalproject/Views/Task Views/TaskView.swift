@@ -24,7 +24,7 @@ struct TaskView: View {
                         // create seperate view for each todo bar
                         EachTaskView(task: task).clipShape(Capsule())
                     }.onDelete(perform: deleteTasks)
-                    .listRowBackground(Color.accent)
+                        .listRowBackground(Color.accent)
                     
                 }
                 .listStyle(.plain)
@@ -37,9 +37,10 @@ struct TaskView: View {
                 ToolbarItem { // add new tasks
                     Button(action: {
                         addTasks(content: taskInput, topics: [Topic(TopicType.topicTwo.rawValue)])
-                    }){Label("", systemImage: "plus").foregroundColor(Color.accent).frame(width: 5, height:5)}.aspectRatio(contentMode: .fit)
+                    }){Label("Add", systemImage: "plus")
+                    }
                 }
-            }.background(Color.background).foregroundColor(Color.accent)
+            }.foregroundColor(Color.accent) .accentColor(Color.accent)
             
         }
         .background(Color(UIColor.background))
@@ -56,7 +57,7 @@ struct TaskView: View {
             modelContext.insert(newTask)
         }
     }
-
+    
     private func deleteTasks(offsets: IndexSet) {
         withAnimation {
             for index in offsets {

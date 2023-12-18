@@ -16,7 +16,7 @@ struct EachTaskView: View {
         HStack{
             Image("bmo").resizable().frame(width: 40,height: 40)
             TextField("enter new task", text: $task.content).foregroundColor(.brown)
-            Picker("Topic: ", selection: $task.topicType) {
+            Picker("topic: ", selection: $task.topicType) {
                 Text(TopicType.topicFour.rawValue).tag(TopicType.topicFour).foregroundColor(.brown)
                 Text(TopicType.topicOne.rawValue).tag(TopicType.topicOne).foregroundColor(.brown)
                 Text(TopicType.topicTwo.rawValue).tag(TopicType.topicTwo).foregroundColor(.brown)
