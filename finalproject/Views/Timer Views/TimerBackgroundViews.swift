@@ -11,19 +11,28 @@ import SwiftUI
 
 struct PomodoroView: View {
     var body: some View {
-        Image("tomato").resizable().frame(width: 327, height: 325)
+        VStack{
+            Image("tomato").resizable().frame(width: 327, height: 325)
+            Text("Pomodoro Mode").foregroundColor(Color.accent).font(.system(size: 14, weight: .medium, design: .rounded)).offset(y:-20)
+        }
     }
 }
 
 struct BreakOneView: View {
     var body: some View {
-        Image("tbreak1").resizable().frame(width: 327, height: 325)
+        VStack{
+            Image("tbreak1").resizable().frame(width: 327, height: 325)
+            Text("Break #1").foregroundColor(Color.accent).font(.system(size: 14, weight: .medium, design: .rounded)).offset(y:-20)
+        }
     }
 }
 
 struct BreakTwoView: View {
     var body: some View {
-        Image("tbreak2").resizable().frame(width: 327, height: 325)
+        VStack{
+            Image("tbreak2").resizable().frame(width: 327, height: 325)
+            Text("Break #2").foregroundColor(Color.accent).font(.system(size: 14, weight: .medium, design: .rounded)).offset(y:-20)
+        }
     }
 }
 
@@ -31,5 +40,5 @@ struct BreakTwoView: View {
 
 
 #Preview {
-    PomodoroView()
+    TimerView()
 }
