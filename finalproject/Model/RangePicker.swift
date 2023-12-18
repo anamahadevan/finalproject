@@ -11,16 +11,22 @@ struct RangePicker: View {
     let min: Int
     let max: Int
     var body: some View {
-        Picker("", selection: $selected) {
-            ForEach(min ..< max, id: \.self) {
-                Text(String(format: "%02d", $0))
+        HStack{
+            Picker("", selection: $selected) {
+                ForEach(min ..< max, id: \.self) {
+                    Text(String(format: "%02d", $0))
+                }
             }
-        }
-        .padding()
-        .pickerStyle(.wheel)
-        .labelsHidden()
-        .frame(width: 80, height: 140)
-        .scaleEffect(CGSize(width: 1, height: 1))
-        .clipped()
+        }.background(Color.background)
+            .padding()
+            .pickerStyle(.wheel)
+            .labelsHidden()
+            .frame(width: 80, height: 140)
+            .scaleEffect(CGSize(width: 1, height: 1))
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
+
+
+
+
