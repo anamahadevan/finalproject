@@ -27,11 +27,15 @@ struct ProgressPageView: View {
             VStack{
                 
                 HStack{
+                
                     
-                    
-                    ProgressWheel(type: .topicOne)
-                        .frame(width: 120, height: 112)
-                        .offset( x: 30, y: 75)
+                    ZStack{
+//                            Image( "calico").resizable()
+//                            .frame(width: 125, height: 130)
+                            
+                        ProgressWheel(type: .topicOne).frame(width: 120, height: 112)
+                            .offset( y: 75)
+                    }
                     
                     
                     Spacer()
@@ -88,47 +92,22 @@ struct ProgressWheel: View {
     let type: TopicType
     @State var count: Double = 0
     var body: some View {
-        ZStack{
-            
-            
-            VStack{
-                
-                ProgressView(value: 10, total: 10)
-                    .progressViewStyle(CircleProgress(strokeColor: Color.pink))
-                    .frame(width: UIScreen.main.bounds.width/2)
-            }
-            
-            //actual progress
-            ProgressView(value: count, total: 7)
-                .progressViewStyle(CircleProgress())
-                .frame(width: UIScreen.main.bounds.width/2)
+        VStack{
             
             //displays number of tasks completed
             Text(String(count))
                 .foregroundColor(.accent)
                 .font(.largeTitle)
+              
             
-            //empty progress circle
-            Text(type.rawValue)
-        }
-        .onAppear {
-            count = Double(UserDefaults.standard.integer(forKey: type.rawValue))
+            //title lf topic
+            Text(type.rawValue).padding().background(Color.accent,in: Capsule())
+                .foregroundColor(.brown)
         }
     }
 }
 
-struct CircleProgress: ProgressViewStyle {
-    
-    var strokeColor = Color.tomato
-    func makeBody(configuration: Configuration) -> some View {
-        
-        return ZStack {
-            Circle()
-                .stroke(strokeColor, style: StrokeStyle(lineWidth: 20, lineCap: .square))
-                .rotationEffect(.degrees(90))
-        }
-    }
-}
+
 
 
 #Preview {
